@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/logogomel.png" type="image/png" />
+    <link rel="stylesheet" href="css/multi.css" />
+    <link rel="stylesheet" href="css/slider/simple-adaptive-slider.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital@1&family=Caveat&family=Courgette&family=Fredericka+the+Great&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora&family=Mukta:wght@300&family=PT+Sans+Narrow&family=Permanent+Marker&family=Ramaraja&family=Roboto&display=swap" rel="stylesheet" />
+    <script defer src="js/simple-adaptive-slider.dev.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // инициализация слайдера
+        var slider = new SimpleAdaptiveSlider('.slider', {
+          loop: true,
+          autoplay: false,
+          swipe: true
+        });
+  
+        // добавим кнопки для увеличения изображения
+        const $slider = document.querySelector('.slider');
+        const $newElement = document.createElement('span');
+        $newElement.className = 'image-open';
+        $slider.append($newElement);
+  
+        document.addEventListener('click', function (e) {
+          var $target = e.target;
+          if (!$target.classList.contains('image-open')) {
+            return;
+          }
+          var sliderWidth = $slider.clientWidth;
+          var sliderHeight = $slider.clientHeight;
+  
+          var $container = document.querySelector('.slider-overflow__container');
+          $container.classList.add('slider-overflow__container_show');
+  
+          var width = Math.trunc(($container.clientHeight / sliderHeight) * sliderWidth);
+          var $sliderOverflow = document.querySelector('.slider-overflow');
+          $sliderOverflow.style.width = width + 'px';
+          var $sliderBox = new SimpleAdaptiveSlider('.slider-overflow', {
+            loop: true,
+            swipe: true
+          });
+          var $sliderItemActive = document.querySelector('.slider__item_active');
+          var index = parseInt($sliderItemActive.dataset.index, 10);
+          $sliderBox.moveTo(index, false);
+        });
+  
+        document.addEventListener('click', function (e) {
+          var $target = e.target;
+          if (!$target.classList.contains('btn-close')) {
+            return;
+          }
+          var $container = document.querySelector('.slider-overflow__container');
+          $container.classList.remove('slider-overflow__container_show');
+        });
+  
+        var thumbnailsItem = document.querySelectorAll('.slider__thumbnails-item');
+        thumbnailsItem.forEach(function ($item, index) {
+          $item.dataset.slideTo = index;
+        })
+  
+        function setActiveThumbnail() {
+          var sliderItemActive = document.querySelector('.slider__item_active');
+          var index = parseInt(sliderItemActive.dataset.index);
+          for (var i = 0, length = thumbnailsItem.length; i < length; i++) {
+            if (i !== index) {
+              thumbnailsItem[i].classList.remove('active');
+            } else {
+              thumbnailsItem[index].classList.add('active');
+            }
+          }
+        }
+        setActiveThumbnail();
+        document.querySelector('.slider').addEventListener('slider.set.active', setActiveThumbnail);
+        var sliderThumbnails = document.querySelector('.slider__thumbnails');
+        sliderThumbnails.addEventListener('click', function (e) {
+          $target = e.target.closest('.slider__thumbnails-item');
+          if (!$target) {
+            return;
+          }
+          var index = parseInt($target.dataset.slideTo, 10);
+          slider.moveTo(index);
+        });
+      });
+    </script>
+     <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+     
+      
+      @media (max-width:426px) {
+        .slider__container {
+          margin-left: 0px !important;
+          margin-right: 0px !important;
+        }
+      }
+      .slider__container {
+        position: relative;
+        margin-left: 200px;
+      }
+  
+      .slider {
+        max-width: 700px;
+        flex: 0 0 310px;
+        margin-left: unset;
+        margin-right: unset;
+      }
+  
+      /* дополнительные стили для этого примера */
+      .slider__items {
+        counter-reset: slide;
+      }
+  
+      .slider__item {
+        counter-increment: slide;
+        display: flex;
+        background-color: #eee;
+      }
+  
+      .slider__item::before {
+        content: counter(slide);
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        color: #fff;
+        font-style: italic;
+        font-size: 32px;
+        font-weight: bold;
+      }
+  
+      .slider img {
+        max-width: 100%;
+        height: auto;
+      }
+  
+      .slider__thumbnails {
+        position: absolute;
+        display: flex;
+        flex-flow: column wrap;
+        align-content: center;
+        width: 150px;
+        left: -175px;
+        top: 0;
+        height: 100%;
+      }
+  
+      .slider__thumbnails-item {
+        line-height: 0;
+        max-width: 52px;
+        margin: 0 10px 10px 0;
+        opacity: .5;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: 0.15s opacity ease-in-out;
+      }
+  
+      .slider__thumbnails-item.active {
+        opacity: 1;
+      }
+  
+      .slider__thumbnails-item:hover {
+        opacity: 1;
+      }
+  
+      .slider__thumbnails-item>img {
+        display: inline-block;
+        width: 100%;
+        height: auto;
+      }
+  
+      .slider__indicators {
+        display: none;
+      }
+  
+      .image-open {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 12px 40px 12px 12px;
+        position: absolute;
+        padding: 10px 16px 6px;
+        left: 8px;
+        bottom: 8px;
+        cursor: pointer;
+        transition: background-color .15s ease-in-out;
+        line-height: 1;
+      }
+  
+      .image-open:hover {
+        background: rgba(255, 255, 255, 0.5);
+      }
+  
+      .image-open::before {
+        content: '';
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background: transparent no-repeat center center;
+        background-size: 100% 100%;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23fff' d='M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z'/%3E%3C/svg%3E");
+      }
+  
+      .slider-overflow__container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: none;
+      }
+  
+      .slider-overflow__container_show {
+        display: flex;
+      }
+  
+      .slider-overflow {
+        margin-left: auto;
+        margin-right: auto;
+      }
+  
+      .slider-overflow .slider__wrapper {
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+  
+      .slider-overflow .slider__items {
+        height: 100%;
+      }
+  
+      .slider-overflow img {
+        max-height: 100%;
+        width: auto;
+      }
+  
+      .btn-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 2;
+        padding: 1.25rem 1rem;
+        box-sizing: content-box;
+        width: 2em;
+        height: 2em;
+        padding: 0.25em 0.25em;
+        color: #000;
+        background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/2em auto no-repeat;
+        border: 0;
+        border-radius: 0.25rem;
+        opacity: 0.5;
+      }
+  
+      .btn-close:hover {
+        color: #000;
+        opacity: 0.75;
+      }
+  
+      .btn-close:focus {
+        outline: 0;
+        box-shadow: none;
+        opacity: 0.75;
+      }
+    </style>
+    <title>Мультимедиа</title>
+  </head>
+  <body>
+    <header class="header sticky-xl-top">
+      <div class="container-fluid">
+        <div class="header-top bg-light d-flex justify-content-center">
+          <div class="logo" data-aos="fade-right" data-aos-once="true">
+            <img src="img/logo.png" alt="logo" />
+          </div>
+          <nav class="navbar navbar-expand-lg navbar-light bg-light" data-aos="flip-up" data-aos-once="true">
+            <div class="container-fluid">
+              <a class="navbar-brand d-md-flex" data-aos="fade-right" data-aos-once="true" href="index.html"">Главная</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" style="margin-left: 80px" aria-label="Переключатель навигации">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="news.html">Новости</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown" data-bs-toggle="dropdown" href="" role="button" aria-expanded="false">О клубе</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="history.html">История</a></li>
+                      <li><a class="dropdown-item" href="administration.html">Администрация</a></li>
+                      <li><a class="dropdown-item" href="strukture.html">Структура</a></li>
+                      <li><a class="dropdown-item" href="traineng.html">Тренировочные поля</a></li>
+                      <li><a class="dropdown-item" href="stadium.html">Стадион</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="team.html">Команда</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="calendar.html">Календарь</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown" data-bs-toggle="dropdown" href="" role="button" aria-expanded="false">Мультимедиа</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="multimedia.html">Сезон-2022</a></li>
+                      <li><a class="dropdown-item" href="season2021.html">Сезон-2021</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="ticket.html">Билеты</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Контакты</a>
+                  </li>
+                </ul>
+                <div class="socio d-flex" data-aos="fade-left" data-aos-once="true">
+                  <div class="img-social">
+                    <a class="social-link" target="_blank" href="https://www.instagram.com/fcgomel1959/">
+                      <svg display="none">
+                        <symbol viewBox="0 0 448 512" id="insta">
+                          <path
+                            d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                          />
+                        </symbol>
+                      </svg>
+                      <svg class="icons">
+                        <use xlink:href="#insta"></use>
+                      </svg>
+                    </a>
+                  </div>
+                  <div class="img-social">
+                    <a class="social-link" target="_blank" href="https://twitter.com/fcgomel">
+                      <svg display="none">
+                        <symbol viewBox="0 0 512 512" id="twit">
+                          <path
+                            d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
+                          />
+                        </symbol>
+                      </svg>
+                      <svg class="icons">
+                        <use xlink:href="#twit"></use>
+                      </svg>
+                    </a>
+                  </div>
+                  <div class="img-social">
+                    <a class="social-link" target="_blank" href="https://vk.com/fc_gomel">
+                      <svg display="none">
+                        <symbol viewBox="0 0 448 512" id="vk">
+                          <path
+                            d="M31.4907 63.4907C0 94.9813 0 145.671 0 247.04V264.96C0 366.329 0 417.019 31.4907 448.509C62.9813 480 113.671 480 215.04 480H232.96C334.329 480 385.019 480 416.509 448.509C448 417.019 448 366.329 448 264.96V247.04C448 145.671 448 94.9813 416.509 63.4907C385.019 32 334.329 32 232.96 32H215.04C113.671 32 62.9813 32 31.4907 63.4907ZM75.6 168.267H126.747C128.427 253.76 166.133 289.973 196 297.44V168.267H244.16V242C273.653 238.827 304.64 205.227 315.093 168.267H363.253C359.313 187.435 351.46 205.583 340.186 221.579C328.913 237.574 314.461 251.071 297.733 261.227C316.41 270.499 332.907 283.63 346.132 299.751C359.357 315.873 369.01 334.618 374.453 354.747H321.44C316.555 337.262 306.614 321.61 292.865 309.754C279.117 297.899 262.173 290.368 244.16 288.107V354.747H238.373C136.267 354.747 78.0267 284.747 75.6 168.267Z"
+                          />
+                        </symbol>
+                      </svg>
+                      <svg class="icons">
+                        <use xlink:href="#vk"></use>
+                      </svg>
+                    </a>
+                  </div>
+                  <div class="img-social">
+                    <a class="social-link" target="_blank" href="https://www.youtube.com/user/FCGomel1959">
+                      <svg display="none">
+                        <symbol viewBox="0 0 576 512" id="yt">
+                          <path
+                            d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"
+                          />
+                        </symbol>
+                      </svg>
+                      <svg class="icons">
+                        <use xlink:href="#yt"></use>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div class="container pt-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a  class="breadcrumb-link" href="index.html">Главная</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Сезон-2022</li>
+        </ol>
+      </nav>
+    </div>
+    <section class="mt-3">
+        <h1 class="text-center foto-title">Мультимедиа</h1>
+        <div class="container">
+          <div class="navigation d-flex justify-content-between mt-3">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Сезон-2022
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="season2021.html">Сезон-2021</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="card-info mt-4">
+            <h2 class="text-center mb-3 foto-title">Фотоотчеты</h2>
+            <div class="row">
+              <div class="col-sm mb-sm-2">
+                <div class="card" style="width: 18rem; height: 22rem;">
+                  <img src="img/multimedia/foto1.jfif" class="card-img-top" alt="photo">
+                  <div class="card-body">
+                    <h5 class="card-title">Товарищеский матч. "Ислочь" - "Гомель"</h5>
+                    <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                     Смотреть подробности
+                    </button>
+                    <p class="modal-text pt-4 ">27 Ферваля 2022</p>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Товарищеский матч. "Ислочь" - "Гомель"</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="fotorama" data-width="700" data-maxwidth="100%" data-ratio="800/600" data-allowfullscreen="true" data-nav="thumbs">
+                              <img src="img/multimedia/foto1.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/foto2.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/foto3.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/foto4.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/foto5.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/foto6.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/foto7.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/foto8.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/foto9.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/foto10.jfif" class="img-fluid" alt="photo">
+                           </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm mb-sm-2">
+                <div class="card" style="width: 18rem; height: 22rem;">
+                  <img src="img/multimedia/2modal/1foto.jfif" class="card-img-top" alt="photo">
+                  <div class="card-body">
+                    <h5 class="card-title">Товарищеский матч. "Гомель" - "Арсенал"</h5>
+                    <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                     Смотреть подробности
+                    </button>
+                    <p class="modal-text pt-4 ">24 Ферваля 2022</p>
+                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel1">Товарищеский матч. "Гомель" - "Арсенал"</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="fotorama" data-width="700" data-maxwidth="100%" data-ratio="800/600" data-allowfullscreen="true" data-nav="thumbs">
+                              <img src="img/multimedia/2modal/1foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/2modal/2foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/2modal/3foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/2modal/4foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/2modal/5foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/2modal/6foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/2modal/7foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/2modal/8foto.jfif" class="img-fluid" alt="photo">
+                           </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm mb-sm-2">
+                <div class="card" style="width: 18rem; height: 22rem;">
+                  <img src="img/multimedia/3modal/1foto.jfif" class="card-img-top" alt="photo">
+                  <div class="card-body">
+                    <h5 class="card-title">Товарищеский матч "Гомель" - "Витебск"</h5>
+                    <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                     Смотреть подробности
+                    </button>
+                    <p class="modal-text pt-4 ">23 Ферваля 2022</p>
+                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel2">Товарищеский матч "Гомель" - "Витебск"</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="fotorama" data-width="700" data-maxwidth="100%" data-ratio="800/600" data-allowfullscreen="true" data-nav="thumbs">
+                              <img src="img/multimedia/3modal/1foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/3modal/2foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/3modal/3foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/3modal/4foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/3modal/5foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/3modal/6foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/3modal/7foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/3modal/8foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/3modal/9foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/3modal/10foto.jfif" class="img-fluid" alt="photo">
+                           </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm mb-sm-2">
+                <div class="card" style="width: 18rem; height: 22rem;">
+                  <img src="img/multimedia/4modal/2foto.jfif" class="card-img-top" alt="photo">
+                  <div class="card-body">
+                    <h5 class="card-title">Товарищеский матч. "Минск" - "Гомель"</h5>
+                    <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                     Смотреть подробности
+                    </button>
+                    <p class="modal-text pt-4 ">21 Ферваля 2022</p>
+                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel3">Товарищеский матч. "Минск" - "Гомель"</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="fotorama" data-width="700" data-maxwidth="100%" data-ratio="800/600" data-allowfullscreen="true" data-nav="thumbs">
+                              <img src="img/multimedia/4modal/1foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/4modal/2foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/4modal/3foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/4modal/4foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/4modal/5foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/4modal/6foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/4modal/7foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/4modal/8foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/4modal/9foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/4modal/10foto.jfif" class="img-fluid" alt="photo">
+                           </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-sm mb-sm-2">
+                <div class="card" style="width: 18rem; height: 23rem;">
+                  <img src="img/multimedia/5modal/10foto.jfif" class="card-img-top"  alt="photo">
+                  <div class="card-body">
+                    <h5 class="card-title">Товарищеский матч "Гомель" - "Шахтер"</h5>
+                    <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal4">
+                     Смотреть подробности
+                    </button>
+                    <p class="modal-text pt-4 ">20 Ферваля 2022</p>
+                    <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel4">Товарищеский матч "Гомель" - "Шахтер"</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="fotorama" data-width="700" data-maxwidth="100%" data-ratio="800/600" data-allowfullscreen="true" data-nav="thumbs">
+                              <img src="img/multimedia/5modal/1foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/5modal/2foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/5modal/3foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/5modal/4foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/5modal/5foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/5modal/6foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/5modal/7foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/5modal/8foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/5modal/9foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/5modal/10foto.jfif" class="img-fluid" alt="photo">
+                           </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm mb-sm-2">
+                <div class="card" style="width: 18rem; height: 23rem;">
+                  <img src="img/multimedia/6modal/1foto.jfif" class="card-img-top" alt="photo">
+                  <div class="card-body">
+                    <h5 class="card-title">Товарищеский матч. "Гомель" - "Славия"</h5>
+                    <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal5">
+                     Смотреть подробности
+                    </button>
+                    <p class="modal-text pt-4 ">19 Ферваля 2022</p>
+                    <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel5" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel5">Товарищеский матч. "Гомель" - "Славия"</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="fotorama" data-width="700" data-maxwidth="100%" data-ratio="800/600" data-allowfullscreen="true" data-nav="thumbs">
+                              <img src="img/multimedia/6modal/1foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/6modal/2foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/6modal/3foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/6modal/4foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/6modal/5foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/6modal/6foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/6modal/7foto.jfif" class="img-fluid" alt="photo">
+                              <img src="img/multimedia/6modal/8foto.jfif" class="img-fluid" alt="photo">
+                           </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm mb-sm-2">
+                <div class="card" style="width: 18rem; height: 23rem;">
+                  <img src="img/multimedia/7modal/3foto.jfif" class="card-img-top" alt="photo">
+                  <div class="card-body">
+                    <h5 class="card-title">Товарищеский матч. "Гомель" - "Днепр"</h5>
+                    <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal6">
+                     Смотреть подробности
+                    </button>
+                    <p class="modal-text pt-4 ">17 Ферваля 2022</p>
+                    <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel6" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel6">Товарищеский матч. "Гомель" - "Днепр"</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="fotorama" data-width="700" data-maxwidth="100%" data-ratio="800/600" data-allowfullscreen="true" data-nav="thumbs">
+                              <img src="img/multimedia/7modal/1foto.jfif" class="img-fluid" alt="phote">
+                              <img src="img/multimedia/7modal/2foto.jfif" class="img-fluid" alt="phote">
+                              <img src="img/multimedia/7modal/3foto.jfif" class="img-fluid" alt="phote">
+                              <img src="img/multimedia/7modal/4foto.jfif" class="img-fluid" alt="phote">
+                              <img src="img/multimedia/7modal/5foto.jfif" class="img-fluid" alt="phote">
+                              <img src="img/multimedia/7modal/6foto.jfif" class="img-fluid" alt="phote">
+                              <img src="img/multimedia/7modal/7foto.jfif" class="img-fluid" alt="phote">
+                              <img src="img/multimedia/7modal/8foto.jfif" class="img-fluid" alt="phote">
+                           </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm mb-sm-2">
+                <div class="card" style="width: 18rem; height: 23rem;">
+                  <img src="img/multimedia/8modal/8foto.jfif" class="card-img-top" alt="photo">
+                  <div class="card-body">
+                    <h5 class="card-title">Товарищеский матч "Гомель" - "Белшина"</h5>
+                    <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal7">
+                     Смотреть подробности
+                    </button>
+                    <p class="modal-text pt-4 ">15 Ферваля 2022</p>
+                    <div class="modal fade" id="exampleModal7" tabindex="-1" aria-labelledby="exampleModalLabel7" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel7">Товарищеский матч "Гомель" - "Белшина"</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+    <section data-aos="fade-up">
+        <div class="container">
+          <h2 class="text-center foto-title">Видеообзоры</h2>
+          <div class="row">
+            <div class="col-sm">
+              <div class="card" style="width: 18rem;">
+                <img src="img/multimedia/videogame.jpg" class="card-img-top" alt="gomelshaxter">
+                <div class="card-body">
+                  <h5 class="card-title">Товарищеский матч "Гомель" - "Шахтер"</h5>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal0">
+                    Узнать подробности
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="exampleModal0" tabindex="-1" aria-labelledby="exampleModalLabel0" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel0">Товарищеский матч "Гомель" - "Шахтер"</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class='embed-container'><iframe src='https://www.youtube.com/embed/7UINK-Bl0tg' frameborder='0' allowfullscreen></iframe></div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="card" style="width: 18rem;">
+                <img src="img/multimedia/videomodal1/2video.jpg" class="card-img-top" alt="YANAffi">
+                <div class="card-body">
+                  <h5 class="card-title">Ян АФФИ | Знакомимся с новичком команды</h5>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal01">
+                    Узнать подробности
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="exampleModal01" tabindex="-1" aria-labelledby="exampleModalLabel01" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel01">Ян АФФИ | Знакомимся с новичком команды</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class='embed-container'><iframe src='https://www.youtube.com/embed/U6OUt5GY1fQ' frameborder='0' allowfullscreen></iframe></div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+              <img src="img/multimedia/videomodal1/3video.jpg" class="card-img-top" alt="gomelled">
+              <div class="card-body">
+                <h5 class="card-title">Команда провела тренировку на льду</h5>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal011">
+                  Узнать подробности
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="exampleModal011" tabindex="-1" aria-labelledby="exampleModalLabel011" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel011">Команда провела тренировку на льду</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class='embed-container'><iframe src='https://www.youtube.com/embed/hbJbpMxo_EI' frameborder='0' allowfullscreen></iframe></div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+              <img src="img/multimedia/videomodal1/4video.jpg" class="card-img-top" alt="gomelslaviay">
+              <div class="card-body">
+                <h5 class="card-title">Товарищеский матч. "Гомель" - "Славия"</h5>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal05">
+                  Узнать подробности
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="exampleModal05" tabindex="-1" aria-labelledby="exampleModalLabel05" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel05">Товарищеский матч. "Гомель" - "Славия"</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class='embed-container'><iframe src='https://www.youtube.com/embed/ykTf5Vl0TqM' frameborder='0' allowfullscreen></iframe></div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="mt-4" data-aos="fade-up">
+      <div class="container">
+        <h2 class="text-center multi-title foto-title">Наши болельщики</h2>
+          <div class="slider__container">
+            <div class="slider">
+              <div class="slider__wrapper">
+                 <div class="slider__items">
+                     <div class="slider__item">
+                        <img src="img/multimedia/books/threebook.jpg" alt="photo" width="700" height="1000" loading="lazy">
+                      </div>
+                      <div class="slider__item">
+                        <img src="img/multimedia/books/twobook.jfif" alt="photo" width="700" height="1000" loading="lazy">
+                      </div>
+                      <div class="slider__item">
+                        <img src="img/multimedia/books/fc_gomel_fans_at_stadium.jpg" alt="photo" width="700" height="1000" loading="lazy">
+                      </div>
+                      <div class="slider__item">
+                        <img src="img/multimedia/books/4book.jpg" alt="photo" width="700" height="1000" loading="lazy">
+                      </div>
+                      <div class="slider__item">
+                        <img src="img/multimedia/books/5book.jpg" alt="photo" width="700" height="1000" loading="lazy">
+                      </div>
+                      <div class="slider__item">
+                        <img src="img/multimedia/books/6book.jpg" alt="photo" width="700" height="1000" loading="lazy">
+                      </div>
+                      <div class="slider__item">
+                        <img src="img/multimedia/books/7book.jpg" alt="photo" width="700" height="1000" loading="lazy">
+                      </div>
+                      <div class="slider__item">
+                        <img src="img/multimedia/books/8book.jpg" alt="photo" width="700" height="1000" loading="lazy">
+                      </div>
+                    </div>
+                      </div>
+                      <a class="slider__control slider__control_prev" href="#" role="button" data-slide="prev"></a>
+                      <a class="slider__control slider__control_next" href="#" role="button" data-slide="next"></a>
+                    </div>
+                  <!-- thumbnails -->
+                  <div class="slider__thumbnails">
+                    <div class="slider__thumbnails-item">
+                      <img src="img/multimedia/books/threebook.jpg" alt=photo." width="100" height="143" loading="lazy">
+                    </div>
+                    <div class="slider__thumbnails-item">
+                      <img src="img/multimedia/books/twobook.jfif" alt="photo" width="100" height="143" loading="lazy">
+                    </div>
+                    <div class="slider__thumbnails-item">
+                      <img src="img/multimedia/books/fc_gomel_fans_at_stadium.jpg" alt="photo" width="100" height="143" loading="lazy">
+                    </div>
+                    <div class="slider__thumbnails-item">
+                      <img src="img/multimedia/books/4book.jpg" alt="photo" width="100" height="143" loading="lazy">
+                    </div>
+                    <div class="slider__thumbnails-item">
+                      <img src="img/multimedia/books/5book.jpg" alt="photo" width="100" height="143" loading="lazy">
+                    </div>
+                    <div class="slider__thumbnails-item">
+                      <img src="img/multimedia/books/6book.jpg" alt="photo" width="100" height="143" loading="lazy">
+                    </div>
+                    <div class="slider__thumbnails-item">
+                      <img src="img/multimedia/books/7book.jpg" alt="photo" width="100" height="143" loading="lazy">
+                    </div>
+                    <div class="slider__thumbnails-item">
+                      <img src="img/multimedia/books/8book.jpg" alt="photo" width="100" height="143" loading="lazy">
+                    </div>
+                  </div>        
+                <!-- slider__overflow-->
+                <div class="slider-overflow__container">
+                  <button type="button" class="btn-close"></button>
+                <div class="slider-overflow">
+                  <div class="slider__wrapper">
+                    <div class="slider__items">
+                      <div class="slider__item">
+                         <img src="img/multimedia/books/threebook.jpg" alt="photo" loading="lazy">
+                    </div>
+                    <div class="slider__item">
+                        <img src="img/multimedia/books/twobook.jfif" alt="photo" loading="lazy">
+                    </div>
+                    <div class="slider__item">
+                        <img src="img/multimedia/books/fc_gomel_fans_at_stadium.jpg" alt="photo" loading="lazy">
+                    </div>
+                    <div class="slider__item">
+                        <img src="img/multimedia/books/4book.jpg" alt="photo" loading="lazy">
+                    </div>
+                    <div class="slider__item">
+                         <img src="img/multimedia/books/5book.jpg" alt="photo" loading="lazy">
+                    </div>
+                    <div class="slider__item">
+                        <img src="img/multimedia/books/6book.jpg" alt="photo" loading="lazy">
+                    </div>
+                    <div class="slider__item">
+                        <img src="img/multimedia/books/7book.jpg" alt="photo" loading="lazy">
+                    </div>
+                    <div class="slider__item">
+                        <img src="img/multimedia/books/8book.jpg" alt="photo" loading="lazy">
+                    </div>
+                  </div>
+                </div>
+                <a class="slider__control slider__control_prev" href="#" role="button" data-slide="prev"></a>
+                <a class="slider__control slider__control_next" href="#" role="button" data-slide="next"></a>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </section>
+    <footer>
+      <div class="container-fluid">
+        <div class="row justify-content-md-center footer-color pb-4">
+          <div class="col-sm text-white text-center  mt-4 colgomel ms-xl-2"">
+            <h3 class="title-footer ms-xl-2 text-black ">Футбольный клуб "Гомель"</h3>
+            <img src="img/logo1.png" class="img-fluid" alt="logo1">
+            <p class="pt-3 logotext">Сайт футбольного клуба «Гомель»</p>
+          </div>
+          <div class="col-sm text-center mt-4">
+            <h3 class="text-black title-footer">Мы в социальных сетях</h3>
+            <div class="soc d-flex justify-content-evenly mt-3">
+            <div class="img-social ">
+              <a class="soc-link" target="_blank" href="https://www.instagram.com/fcgomel1959/">
+               <svg display="none">
+                 <symbol viewBox="0 0 448 512" id="insta">
+                  <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+                 </symbol>
+               </svg>
+               <svg class="iconss insta">
+                 <use xlink:href="#insta"></use>
+               </svg>
+              </a>
+              <span class="footer-social">Instagramm</span>
+            </div>              
+            <div class="img-social">
+              <a class="social-link" target="_blank" href="https://twitter.com/fcgomel">
+                <svg display="none">
+                  <symbol viewBox="0 0 512 512" id="twit">
+                    <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/>
+                  </symbol>
+                </svg>
+                <svg class="iconss twit">
+                  <use xlink:href="#twit"></use>
+                </svg>
+              </a>
+              <span class="footer-social">Twitter</span>
+            </div>            
+            <div class="img-social">
+              <a class="social-link" target="_blank" href="https://vk.com/fc_gomel">
+                <svg display="none">
+                <symbol viewBox="0 0 448 512" id="vk">
+                  <path d="M31.4907 63.4907C0 94.9813 0 145.671 0 247.04V264.96C0 366.329 0 417.019 31.4907 448.509C62.9813 480 113.671 480 215.04 480H232.96C334.329 480 385.019 480 416.509 448.509C448 417.019 448 366.329 448 264.96V247.04C448 145.671 448 94.9813 416.509 63.4907C385.019 32 334.329 32 232.96 32H215.04C113.671 32 62.9813 32 31.4907 63.4907ZM75.6 168.267H126.747C128.427 253.76 166.133 289.973 196 297.44V168.267H244.16V242C273.653 238.827 304.64 205.227 315.093 168.267H363.253C359.313 187.435 351.46 205.583 340.186 221.579C328.913 237.574 314.461 251.071 297.733 261.227C316.41 270.499 332.907 283.63 346.132 299.751C359.357 315.873 369.01 334.618 374.453 354.747H321.44C316.555 337.262 306.614 321.61 292.865 309.754C279.117 297.899 262.173 290.368 244.16 288.107V354.747H238.373C136.267 354.747 78.0267 284.747 75.6 168.267Z"/>
+                </symbol>
+              </svg>
+              <svg class="iconss vk">
+                <use xlink:href="#vk"></use>
+              </svg>
+              </a>
+              <span class="footer-social">VK</span>
+            </div>           
+            <div class="img-social">
+              <a class="social-link" target="_blank" href="https://www.youtube.com/user/FCGomel1959">
+                <svg display="none">
+                  <symbol viewBox="0 0 576 512" id="yt">
+                    <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/>
+                  </symbol>
+                </svg>
+                <svg class="iconss yt">
+                  <use xlink:href="#yt"></use>
+                </svg>
+              </a>
+              <span class="footer-social">Youtube</span>
+            </div> 
+          </div>
+          <div class="contacts mt-4">
+          <h3 class="text-black  text-center title-footer">Контакты</h3>
+          <div class="col-sm text-center text-white text-contact">
+            <svg display="none">
+              <symbol viewBox="0 0 448 512" id="phone">
+                <path d="M0 96v320c0 35.35 28.65 64 64 64h320c35.35 0 64-28.65 64-64V96c0-35.35-28.65-64-64-64H64C28.65 32 0 60.65 0 96zM105.5 303.6l54.24-23.25c6.391-2.766 13.9-.9062 18.24 4.484l22.02 26.91c34.63-17 62.77-45.14 79.77-79.75l-26.91-22.05c-5.375-4.391-7.211-11.83-4.492-18.22l23.27-54.28c3.047-6.953 10.59-10.77 17.93-9.062l50.38 11.63c7.125 1.625 12.11 7.891 12.11 15.22c0 126.1-102.6 228.8-228.7 228.8c-7.336 0-13.6-4.984-15.24-12.11l-11.62-50.39C94.71 314.2 98.5 306.6 105.5 303.6z"/>
+              </symbol>
+            </svg>
+            <svg class="phone-footer">
+              <use xlink:href="#phone"></use>
+            </svg>
+            Тел./факс:	<a class="phone" href="tel:(+375 232) 34-99-80">(+375 232) 34-99-80</a> (приемная)
+            <a class="phone" href="tel:34-99-81 ">34-99-81 </a>(бухгалтерия)
+          </div>
+          <div class="col-sm text-center text-white text-contact">
+            <svg display="none">
+              <symbol viewBox="0 0 512 512" id="mail">
+                <path d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z"/>
+              </symbol>
+            </svg>
+            <svg class="mail-footer">
+              <use xlink:href="#mail"></use>
+            </svg>
+            E-mail:	<a class="mail" href="mailto:fc_gomel@mail.ru"><i>fc_gomel@mail.ru </i></a>(клуб)
+            <a class="mail" href="mailto:fcgomel_press@mail.ru"><i>fcgomel_press@mail.ru</i></a> (пресс-служба)</div>
+            <div class="col-sm text-center text-white text-contact">Фактический адрес:	Беларусь, 246050, Гомель, пл. Восстания, 1</div>
+          </div>
+        </div>
+          <div class="col-sm colform mb-3">
+            <h3 class="text-black  mt-4 me-3 title-footer text-center">Есть вопросы? Свяжись с нами!</h3>
+            <div class="mb-3 ms-xl-5">
+              <form action="" class="needs-validation" validate>
+                <label for="validationCustom03"  class="form-label" style="width: 300px;">Ваш E-mail</label>
+                <input type="text" type='e-mail' class="form-control" id="validationCustom03" style="width: 70%;" required>
+                <div class="invalid-feedback">
+                 Укажите ваш E-mail
+                </div>
+            </div>
+            <div class="mb-3 ms-xl-5">
+              <label for="validationCustom05" class="form-label">Ваш комментарий</label>
+              <textarea type="text" class="form-control" id="validationCustom05" rows="3" placeholder="Введите ваш комментарий" style="width: 70%;" required></textarea>
+              <div class="invalid-feedback">
+              </div>
+            </div>
+            <button type="submit"  class="btn btn-primary ms-xl-5">Отправить</button>
+          </form>
+          </div>
+        </div>
+      </div>   
+    </footer>
+      <script src="js/simple-adaptive-slider.dev.js"></script>
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+      <script src="js/main.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+    </body>
+</html>

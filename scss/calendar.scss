@@ -1,0 +1,384 @@
+@import "reset.scss";
+@import "variables.scss";
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+  background: -webkit- $background;
+  background: -moz- $background;
+  background: $background;
+  a {
+    text-decoration: none;
+    color: #ffffff;
+    &:hover {
+      color: black;
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .social {
+    padding-right: 0px;
+    margin-top: 15px;
+  }
+}
+@media (max-width: 758px) {
+  div#navbarNav.navbar-collapse.collapse.show {
+    padding-left: 0;
+  }
+}
+.icons {
+  width: 30px;
+  height: 30px;
+  &:hover {
+    fill: #0f9b0f !important;
+  }
+}
+.logo {
+  margin-right: 100px;
+}
+@media (max-width: 375px) {
+  .logo {
+    margin-right: 0px;
+  }
+}
+@media (max-width: 321px) {
+  .container {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+.container-fluid {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+a.btn.btn-primary,
+button.btn.btn-primary {
+  @include btn-prm;
+  &:hover {
+    box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+  }
+}
+a.navbar-brand {
+  @include nav-brand;
+}
+nav.navbar-light .navbar-nav .nav-link {
+  @include nav-light;
+}
+
+a.dropdown-item {
+  color: green !important;
+  text-decoration: none !important;
+}
+li.nav-item.dropdown {
+  position: relative;
+}
+ul.dropdown-menu {
+  display: none;
+  margin-bottom: -350px;
+}
+li.nav-item.dropdown:hover {
+  ul.dropdown-menu {
+    display: block;
+    position: absolute;
+    top: 34px;
+    z-index: 9999;
+  }
+}
+.social-link {
+  padding-left: 5px !important;
+}
+.img-social {
+  transition: all 1s ease-out;
+}
+.img-social:hover {
+  transform: scale(1.3);
+}
+.bot-header {
+  border-radius: 15px 15px;
+}
+h1 {
+  text-shadow: 2px 2px 2px #45ce10;
+}
+.first-td {
+  vertical-align: middle;
+  border-width: 2px;
+  text-align: center;
+}
+.breadcrumb-link {
+  @include breadcrumb-link;
+}
+.form-label {
+  color: #fff;
+}
+.gomel,
+.belshina,
+.dnepr,
+.slavia,
+.shaxter,
+.minsk,
+.vitebsk,
+.arsenal,
+.isloch,
+.dinamo,
+.bate,
+.sluck,
+.energetik,
+.rukh,
+.torpedo,
+.neman {
+  font-weight: bold;
+}
+.gomel::before {
+  content: url(/img/calendar/gomel.png);
+  vertical-align: middle;
+  padding-right: 10px;
+}
+.torpedo::before {
+  content: url(/img/calendar/torpedo.png);
+  vertical-align: middle;
+  padding-right: 10px;
+}
+.belshina::before {
+  content: url(/img/calendar/belshina.png);
+  vertical-align: middle;
+  padding-left: 5px;
+}
+.neman::before {
+  content: url(/img/calendar/neman.png);
+  vertical-align: middle;
+  padding-right: 10px;
+}
+.rukh::before {
+  content: url(/img/calendar/rukh.png);
+  vertical-align: middle;
+  padding-right: 10px;
+}
+.dnepr::before {
+  content: url(/img/calendar/dnepr.png);
+  vertical-align: middle;
+  padding-right: 10px;
+}
+.energetik::before {
+  content: url(/img/calendar/energetik.png);
+  vertical-align: middle;
+  padding-right: 10px;
+}
+.slavia::before {
+  content: url(/img/calendar/slavia.png);
+  vertical-align: middle;
+  padding-right: 10px;
+}
+.shaxter::before {
+  content: url(/img/calendar/shaxter.png);
+  vertical-align: middle;
+  padding-right: 10px;
+}
+.minsk::before {
+  content: url(/img/calendar/minsk.png);
+  vertical-align: middle;
+  padding-right: 10px;
+}
+.vitebsk::before {
+  content: url(/img/calendar/minsk.png);
+  vertical-align: middle;
+}
+.vitebsk::before {
+  content: url(/img/calendar/vitebsk.png);
+  vertical-align: middle;
+  padding-right: 10px;
+}
+.sluck::before {
+  content: url(/img/calendar/cluck.png);
+  vertical-align: middle;
+  padding-right: 10px;
+}
+.arsenal::before {
+  content: url(/img/calendar/arsenal.png);
+  vertical-align: middle;
+}
+.isloch::before {
+  content: url(/img/calendar/isloch.png);
+  vertical-align: middle;
+  padding-right: 10px;
+}
+.dinamo::before {
+  content: url(/img/calendar/dinamo.png);
+  vertical-align: middle;
+  padding-right: 10px;
+}
+.bate::before {
+  content: url(/img/calendar/bate.png);
+  vertical-align: middle;
+  padding-right: 10px;
+}
+.td-title {
+  font-weight: 500;
+  vertical-align: middle;
+  border-width: 2px;
+  text-align: center;
+}
+.td-text {
+  font-family: "Lora", serif;
+  border-width: 2px;
+  text-align: center;
+  font-style: italic;
+  font-weight: bolder;
+}
+tr:hover {
+  background-color: #45b649;
+  color: #fff;
+}
+.table-tab {
+  tr {
+    vertical-align: middle;
+    text-align: justify;
+    &:hover {
+      color: #0f9b0f;
+    }
+  }
+  td {
+    text-align: left;
+  }
+}
+@media (max-width: 425px) {
+  .table-tab .td-title {
+    font-size: 12px;
+  }
+  .td-text {
+    font-size: 12px;
+  }
+  .gomel,
+  .belshina,
+  .dnepr,
+  .slavia,
+  .shaxter,
+  .minsk,
+  .vitebsk,
+  .arsenal,
+  .isloch,
+  .dinamo,
+  .bate {
+    font-weight: 500;
+  }
+}
+.rezult {
+  font-weight: bold;
+  font-style: italic;
+  vertical-align: middle;
+  border-width: 2px;
+  text-align: center;
+}
+.table-title {
+  font-family: "Ramaraja", serif;
+  text-shadow: 2px 2px 2px #1fce0a;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@media (max-width: 321px) {
+  .td-title {
+    font-size: 12px;
+  }
+  .td-text {
+    font-size: 12px;
+  }
+  .gomel,
+  .belshina,
+  .dnepr,
+  .slavia,
+  .shaxter,
+  .minsk,
+  .vitebsk,
+  .arsenal,
+  .isloch,
+  .dinamo,
+  .bate {
+    font-weight: 500;
+  }
+}
+footer {
+  @include footer;
+}
+.footer-color {
+  background-color: rgb(66, 63, 66);
+}
+@media (max-width: 1024px) {
+  .colgomel {
+    margin-left: 0px;
+  }
+}
+.logotext {
+  font-family: "Lora", serif;
+  font-size: 1.3rem;
+  color: white;
+  text-shadow: 4px 1px 8px #14ff0a;
+}
+@media (max-width: 425px) {
+  .colform {
+    textarea {
+      width: 97% !important;
+    }
+    input {
+      width: 97% !important;
+    }
+  }
+}
+.title-footer {
+  @include title-footer;
+}
+@media (max-width: 425px) {
+  .title-footer {
+    margin-left: 10px;
+  }
+  .colform {
+    margin-bottom: 10px;
+    margin-left: 6px;
+  }
+  div.col-sm.colform {
+    button.btn.btn-primary {
+      margin-left: 100px;
+    }
+  }
+}
+.footer-social {
+  @include footer-social;
+}
+.footer-menu {
+  @include footer-menu;
+}
+.text-contact {
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 1.2rem;
+}
+.phone {
+  color: #3498db;
+  &:hover {
+    color: #45b649;
+  }
+}
+.mail {
+  color: #45b649;
+  &:hover {
+    color: #3498db;
+  }
+}
+.phone-footer {
+  @include phone-footer;
+}
+.mail-footer {
+  @include mail-footer;
+}
+@media (max-width: 991px) {
+  @include responsiv-menu;
+}
+@media (max-width: 568px) {
+  @include responsiv_two;
+}
+@media (max-width: 536px) {
+  @include responsiv_three;
+}
+@media (max-width: 426px) {
+  @include responsiv_four;
+}
+@media (max-width: 991px) {
+  @include res_menu;
+}

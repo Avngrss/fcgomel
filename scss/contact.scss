@@ -1,0 +1,244 @@
+@import "reset.scss";
+@import "variables.scss";
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+  background: -webkit- $background;
+  background: -moz- $background;
+  background: $background;
+  a {
+    text-decoration: none;
+    color: #ffffff;
+    &:hover {
+      color: black;
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .social {
+    padding-right: 0px;
+    margin-top: 15px;
+  }
+}
+@media (max-width: 758px) {
+  div#navbarNav.navbar-collapse.collapse.show {
+    padding-left: 0;
+  }
+}
+.icons {
+  width: 30px;
+  height: 30px;
+  &:hover {
+    fill: $color !important;
+  }
+}
+.logo {
+  margin-right: 100px;
+}
+@media (max-width: 375px) {
+  .logo {
+    margin-right: 0px;
+  }
+}
+@media (max-width: 321px) {
+  .container {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+.container-fluid {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+a.btn.btn-primary,
+button.btn.btn-primary {
+  @include btn-prm;
+  &:hover {
+    box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+  }
+}
+a.navbar-brand {
+  @include nav-brand;
+}
+nav.navbar-light .navbar-nav .nav-link {
+  @include nav-light;
+}
+
+a.dropdown-item {
+  color: green !important;
+  text-decoration: none !important;
+}
+li.nav-item.dropdown {
+  position: relative;
+}
+ul.dropdown-menu {
+  display: none;
+  margin-bottom: -350px;
+}
+li.nav-item.dropdown:hover {
+  ul.dropdown-menu {
+    display: block;
+    position: absolute;
+    top: 34px;
+    z-index: 9999;
+  }
+}
+.social-link {
+  padding-left: 5px !important;
+}
+.img-social {
+  transition: all 1s ease-out;
+}
+.img-social:hover {
+  transform: scale(1.3);
+}
+.bot-header {
+  border-radius: 15px 15px;
+}
+.info-rek {
+  border-left: #0f9b0f 4px solid;
+}
+.breadcrumb-link {
+  @include breadcrumb-link;
+}
+.title-info {
+  font-family: "Mukta", sans-serif;
+  font-size: 1.3rem;
+  padding-top: 15px;
+}
+.info-text {
+  font-style: italic;
+  text-align: right;
+  padding-top: 15px;
+  font-weight: bold;
+}
+.gomel-link {
+  text-decoration: none;
+  color: #0f9b0f;
+  &:hover {
+    color: #3498db;
+    text-decoration: underline;
+  }
+}
+@media (max-width: 426px) {
+  .info-text {
+    text-align: left;
+  }
+  .col-sm {
+    margin: 5px;
+  }
+  .col-sm-6 {
+    margin: 5px;
+  }
+}
+.title-contaks {
+  background: $background;
+  text-shadow: 5px -1px 2px rgba(237, 237, 237, 1);
+}
+.title-gomel {
+  background: #45b649;
+  transform: skew(170deg);
+}
+.info-text-block {
+  font-family: "Cabin", sans-serif;
+}
+.phone-num {
+  color: #3498db;
+  word-wrap: break-word;
+}
+footer {
+  @include footer;
+}
+.footer-color {
+  background-color: rgb(66, 63, 66);
+}
+@media (max-width: 1024px) {
+  .colgomel {
+    margin-left: 0px;
+  }
+}
+.logotext {
+  font-family: "Lora", serif;
+  font-size: 1.3rem;
+  color: white;
+  text-shadow: 4px 1px 8px #14ff0a;
+}
+@media (max-width: 425px) {
+  .colform {
+    textarea {
+      width: 97% !important;
+    }
+    input {
+      width: 97% !important;
+    }
+  }
+}
+.title-footer {
+  @include title-footer;
+}
+@media (max-width: 425px) {
+  .title-footer {
+    margin-left: 10px;
+  }
+  .colform {
+    margin-bottom: 10px;
+    margin-left: 6px;
+  }
+  div.col-sm.colform {
+    button.btn.btn-primary {
+      margin-left: 100px;
+    }
+  }
+}
+.footer-social {
+  @include footer-social;
+}
+.form-label {
+  color: #fff;
+}
+.footer-menu {
+  @include footer-menu;
+}
+.text-contact {
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 1.2rem;
+}
+.phone {
+  color: #3498db;
+  &:hover {
+    color: #45b649;
+  }
+}
+.mail-info {
+  fill: grey;
+  height: 30px;
+  width: 20px;
+}
+.mail {
+  color: #45b649;
+  &:hover {
+    color: #3498db;
+  }
+}
+.phone-footer {
+  @include phone-footer;
+}
+.mail-footer {
+  @include mail-footer;
+}
+@media (max-width: 991px) {
+  @include responsiv-menu;
+}
+@media (max-width: 568px) {
+  @include responsiv_two;
+}
+@media (max-width: 536px) {
+  @include responsiv_three;
+}
+@media (max-width: 426px) {
+  @include responsiv_four;
+}
+@media (max-width: 991px) {
+  @include res_menu;
+}
