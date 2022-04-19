@@ -234,11 +234,11 @@ body a:hover {
 
 a.btn.btn-primary,
 button.btn.btn-primary {
-  background: #0f9b0f;
-  border-color: #3498db;
+  background: #3498db !important;
+  border-color: #0f9b0f;
   color: #fff;
-  -webkit-box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
-          box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+  -webkit-box-shadow: 0 0 40px 40px #0f9b0f inset, 0 0 0 0 #0f9b0f;
+          box-shadow: 0 0 40px 40px #0f9b0f inset, 0 0 0 0 #0f9b0f;
   -webkit-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
 }

@@ -232,11 +232,11 @@ body {
 
 a.btn.btn-primary,
 button.btn.btn-primary {
-  background: #0f9b0f;
-  border-color: #3498db;
+  background: #3498db !important;
+  border-color: #0f9b0f;
   color: #fff;
-  -webkit-box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
-          box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+  -webkit-box-shadow: 0 0 40px 40px #0f9b0f inset, 0 0 0 0 #0f9b0f;
+          box-shadow: 0 0 40px 40px #0f9b0f inset, 0 0 0 0 #0f9b0f;
   -webkit-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
 }
@@ -357,6 +357,15 @@ nav.navbar-light .navbar-nav .nav-link:hover:after {
   }
 }
 
+div[class*="column"] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
+}
+
 .heading-primary {
   font-size: 2em;
   padding: 2em;
@@ -419,11 +428,6 @@ nav.navbar-light .navbar-nav .nav-link:hover:after {
   transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-}
-
-.accordionTitle:hover,
-.accordion__Heading:hover {
-  background-color: #2ba659;
 }
 
 .accordionTitleActive,
@@ -709,7 +713,9 @@ nav.navbar-light .navbar-nav .nav-link:hover:after {
 }
 
 .link-next {
-  color: blue;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #0f9b0f;
   padding: 10px;
   -webkit-transition: 1s linear;
   transition: 1s linear;

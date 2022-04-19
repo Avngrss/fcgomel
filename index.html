@@ -13,11 +13,12 @@
   </head>
   <body>
     <style type="text/css">#hellopreloader>p{display:none;}#hellopreloader_preload{display: block;position: fixed;z-index: 99999;top: 0;left: 0;width: 100%;height: 100%;min-width: 1000px;background: #1cc25b url(http://hello-site.ru//main/images/preloads/oval.svg) center center no-repeat;background-size:138px;}</style>
-    <div id="hellopreloader"><div id="hellopreloader_preload">
-    </div></div>
+    <div id="hellopreloader">
+      <div id="hellopreloader_preload"></div>
+    </div>
     <header class="header sticky-lg-top">
       <div class="container-fluid">
-        <div class="header-top bg-light d-flex justify-content-center">
+        <div class="header-top bg-light d-flex justify-content-around">
           <div class="logo"  data-aos="fade-right" data-aos-once="true">
             <img  src="img/logo.png" alt="logo" />
           </div>
@@ -30,88 +31,38 @@
               <div class="collapse navbar-collapse"  id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link" href="news.html">Новости</a>
+                    <a class="nav-link" href="../pages/news.html">Новости</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown" data-bs-toggle="dropdown" href="" role="button" aria-expanded="false">О клубе</a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="history.html">История</a></li>
-                      <li><a class="dropdown-item" href="administration.html">Администрация</a></li>
-                      <li><a class="dropdown-item" href="strukture.html">Структура</a></li>
-                      <li><a class="dropdown-item" href="traineng.html">Тренировочные поля</a></li>
-                      <li><a class="dropdown-item" href="stadium.html">Стадион</a></li>
+                      <li><a class="dropdown-item" href="../pages/history.html">История</a></li>
+                      <li><a class="dropdown-item" href="../pages/administration.html">Администрация</a></li>
+                      <li><a class="dropdown-item" href="../pages/strukture.html">Структура</a></li>
+                      <li><a class="dropdown-item" href="../pages/traineng.html">Тренировочные поля</a></li>
+                      <li><a class="dropdown-item" href="../pages/stadium.html">Стадион</a></li>
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="team.html">Команда</a>
+                    <a class="nav-link" href="/pages/team.html">Команда</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="calendar.html">Календарь</a>
+                    <a class="nav-link" href="/pages/calendar.html">Календарь</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown" data-bs-toggle="dropdown" href="" role="button" aria-expanded="false">Мультимедиа</a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="multimedia.html">Сезон-2022</a></li>
-                      <li><a class="dropdown-item" href="season2021.html">Сезон-2021</a></li>
+                      <li><a class="dropdown-item" href="pages/multimedia.html">Сезон-2022</a></li>
+                      <li><a class="dropdown-item" href="pages/season2021.html">Сезон-2021</a></li>
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="ticket.html">Билеты</a>
+                    <a class="nav-link" href="pages/ticket.html">Билеты</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Контакты</a>
+                    <a class="nav-link" href="pages/contact.html">Контакты</a>
                   </li>
                 </ul>
-                <div class="socio d-flex"  data-aos="fade-left" data-aos-once="true">
-                  <div class="img-social">
-                    <a class="social-link" target="_blank" href="https://www.instagram.com/fcgomel1959/">
-                     <svg display="none">
-                       <symbol viewBox="0 0 448 512" id="insta">
-                        <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
-                       </symbol>
-                     </svg>
-                     <svg class="icons">
-                       <use xlink:href="#insta"></use>
-                     </svg>
-                    </a>
-                  </div>
-                  <div class="img-social">
-                    <a class="social-link" target="_blank" href="https://twitter.com/fcgomel">
-                      <svg display="none">
-                        <symbol viewBox="0 0 512 512" id="twit">
-                          <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/>
-                        </symbol>
-                      </svg>
-                      <svg class="icons">
-                        <use xlink:href="#twit"></use>
-                      </svg>
-                    </a>
-                  </div>
-                  <div class="img-social">
-                    <a class="social-link" target="_blank" href="https://vk.com/fc_gomel">
-                      <svg display="none">
-                      <symbol viewBox="0 0 448 512" id="vk">
-                        <path d="M31.4907 63.4907C0 94.9813 0 145.671 0 247.04V264.96C0 366.329 0 417.019 31.4907 448.509C62.9813 480 113.671 480 215.04 480H232.96C334.329 480 385.019 480 416.509 448.509C448 417.019 448 366.329 448 264.96V247.04C448 145.671 448 94.9813 416.509 63.4907C385.019 32 334.329 32 232.96 32H215.04C113.671 32 62.9813 32 31.4907 63.4907ZM75.6 168.267H126.747C128.427 253.76 166.133 289.973 196 297.44V168.267H244.16V242C273.653 238.827 304.64 205.227 315.093 168.267H363.253C359.313 187.435 351.46 205.583 340.186 221.579C328.913 237.574 314.461 251.071 297.733 261.227C316.41 270.499 332.907 283.63 346.132 299.751C359.357 315.873 369.01 334.618 374.453 354.747H321.44C316.555 337.262 306.614 321.61 292.865 309.754C279.117 297.899 262.173 290.368 244.16 288.107V354.747H238.373C136.267 354.747 78.0267 284.747 75.6 168.267Z"/>
-                      </symbol>
-                    </svg>
-                    <svg class="icons">
-                      <use xlink:href="#vk"></use>
-                    </svg>
-                    </a>
-                  </div>
-                  <div class="img-social">
-                    <a class="social-link" target="_blank" href="https://www.youtube.com/user/FCGomel1959">
-                      <svg display="none">
-                        <symbol viewBox="0 0 576 512" id="yt">
-                          <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/>
-                        </symbol>
-                      </svg>
-                      <svg class="icons">
-                        <use xlink:href="#yt"></use>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
               </div>
             </div>
           </nav>
@@ -123,14 +74,14 @@
       <div class="header-info mt-3">
         <h1 class="title-club">Футбольный клуб "Гомель"</h1>
         <img src="img/mainbg.jpg" class="img-fluid img_one" alt="background">
-        <a href="aboniments.html"><p class="text-bg">Стартует продажа абонементов на домашние матчи «Гомеля» в сезоне-2022!</p></a>
+        <a href="pages/aboniments.html"><span class="text-bg">Стартует продажа абонементов на домашние матчи «Гомеля» в сезоне-2022!</span></a>
       </div>
     </div>
     </main>
-    <section class="news mt-3 mb-3">
+    <section class="news">
       <div class="container">
         <h2 class="title-news text-center text-white">
-          <a class="title-link" href="news.html">Новости клуба</a>
+          <a class="title-link" href="pages/news.html">Новости клуба</a>
         </h2>
         <div class="news-cadr mt-3">
           <div class="row">
@@ -146,11 +97,11 @@
               </div>
             </div>
             <div class="col-sm-6 column" data-aos="fade-up">
-              <div class="card">
+              <div class="card flex-shrink-1">
                 <div class='embed-container'><iframe src='https://www.youtube.com/embed/qoIYxay59X8' frameborder='0' allowfullscreen></iframe></div>
                 <div class="card-body">
                   <h5 class="card-title pt-2">Комментарий Владимира Невинского после матча с "Арсеналом"</h5> 
-                  <a href="news.html" class="btn btn-primary">Узнать больше</a>
+                  <a href="pages/news.html" class="btn btn-primary">Узнать больше</a>
                 </div>
               </div>
             </div>
@@ -159,16 +110,16 @@
             <div class="col-sm-6 column" data-aos="fade-up">
               <div class="card">
                 <div class="card-body">
-                  <a href="news.html"> <img src="img/newsimg/3news/newsmodalone.jfif" class="card-img-top" alt="photo" /> </a>
+                  <a href="pages/news.html"> <img src="img/newsimg/3news/newsmodalone.jfif" class="card-img-top" alt="photo" /> </a>
                   <h5 class="card-title pt-2">Со счетом 2:4 «зелено-белые» проиграли в гостях «Минску»</h5>   
-                  <a href="news.html" class="btn btn-primary">Узнать больше</a>
+                  <a href="pages/news.html" class="btn btn-primary">Узнать больше</a>
                 </div>
               </div>
             </div>
             <div class="col-sm-6 column" data-aos="fade-up">
               <div class="card">
                 <div class="card-body">
-                  <a href="news.html">
+                  <a href="pages/news.html">
                     <img src="img/newsimg/4news/2news.jfif" class="card-img-top" alt="photo"" />
                   </a>
                   <h5 class="card-title pt-2">«Зелено-белые» провели первую тренировку на открытом воздухе</h5>    
@@ -181,22 +132,12 @@
         <div class="link-other mt-3 text-end" data-aos="fade-up">
           <a class="link-next" href="news.html">Больше новостей</a>
         </div>
-        <div class="news-form mt-4" data-aos="fade-up">
-          <h3 class="form-news">Подпишитесь на наши новости, чтобы быть в курсе всех событий!</h3>
-          <form>
-            <div class="form d-flex">
-            <label for="mail"></label>
-            <input type="email" id="mail" name="mail" style="width: 100%;">
-            <button class="btn btn-primary">Подписаться</button>
-            </div>
-          </form>
-        </div>
       </div>
     </section>
-    <section class="stadium mt-5 mb-4 text-center" >
+    <section class="stadium mb-1 text-center" >
       <div class="container">
-        <a  href="stadium.html">
-          <img src="img/stadium/bannerstadiumtwo.jpg" class="img-fluid" alt="photo"">
+        <a  href="pages/stadium.html">
+          <h2 class="title-link">Стадион "Центральный"</h2>
         </a>
         <div class="info-stadium" data-aos="fade-up">
           <div class="container">
@@ -244,7 +185,7 @@
                    <p class="stadium-text">Стадион располагается у площади Восстания, недалеко от Городского цирка и рядом со швейной фабрикой «8 марта».</p>
                   </dd>
                   <dt>
-                    <a href="#accordion3" aria-expanded="false" aria-controls="accordion3" class="accordion-title accordionTitle js-accordionTrigger"> "Центральный" является домашней ареной для футбольного клуба «Гомель». </a>
+                    <a href="#accordion3" aria-expanded="false" aria-controls="accordion3" class="accordion-title accordionTitle js-accordionTrigger"> Домашняя арена для футбольного клуба «Гомель». </a>
                   </dt>
                   <dd class="accordion-content accordionItem is-collapsed" id="accordion3" aria-hidden="true">
                    <ul>
@@ -258,22 +199,18 @@
                 </dl>
               </div>
             </div>
-            </div>
+          </div>
         </div>
       </div>
-        <div class="map text-center mt-3" data-aos="fade-up">
-          <h2 class="map-text ">Схема проезда к стадиону</h2>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3439.9367503628173!2d31.012882689764922!3d52.43562130984438!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sby!4v1645956695055!5m2!1sru!2sby" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
       </div>
     </div>
     </section>
     <section class="players text-center">
       <div class="container">
         <a  href="team.html">
-          <img class="players-link text-center mb-3"  src="img/players/playerslink.jpg" alt="photo">
+         <h2 class="title-link">Состав команды</h2>
         </a>
-          <div class="players mb-3">
+          <div class="players">
             <div class="container bg-success pt-3 pb-3"> 
               <div class="row ps-4">
                 <div class="col-3-12 col-md-6  col-lg-3 pe-2" data-aos="fade-right">
@@ -465,8 +402,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="info-players mt-3 text-start">
-                  <a  href="team.html" class="btn btn-primary">Смотерть весь состав</a>
+                <div class="info-players mt-3 text-end">
+                  <a  href="pages/team.html" class="btn btn-primary">Смотерть весь состав</a>
                 </div>
               </div>
             </div>
@@ -475,7 +412,7 @@
     </section>
     <section class="games mb-3">
       <div class="container">
-        <a class="calendar-link border-bottom" href="calendar.html">
+        <a class="calendar-link border-bottom" href="pages/calendar.html">
           <h2 class="calendar-title text-center text-white ">Ближайщие матчи</h2>
         </a>
        <div class="container">
@@ -618,7 +555,7 @@
                         </tr>
                       </tbody>
                     </table>
-                    <a class="btn btn-primary" href="calendar.html">Подробная таблица</a>
+                    <a class="btn btn-primary" href="pages/calendar.html">Подробная таблица</a>
                   </div>
                 </div>
               </div>

@@ -106,7 +106,10 @@ nav.navbar-light .navbar-nav .nav-link {
     font-size: 10px;
   }
 }
-
+div[class*="column"] {
+  display: flex;
+  flex: 1 1;
+}
 .heading-primary {
   font-size: 2em;
   padding: 2em;
@@ -157,9 +160,6 @@ nav.navbar-light .navbar-nav .nav-link {
     float: left;
     transition: transform 0.3s ease-in-out;
   }
-  &:hover {
-    background-color: darken(#38cc70, 10%);
-  }
 }
 .accordionTitleActive,
 .accordionTitle.is-expanded {
@@ -171,7 +171,6 @@ nav.navbar-light .navbar-nav .nav-link {
 .accordionItem {
   height: auto;
   overflow: hidden;
-  //SHAME: magic number to allow the accordion to animate
 
   max-height: 50em;
   transition: max-height 1s;
@@ -257,7 +256,9 @@ nav.navbar-light .navbar-nav .nav-link {
   padding-left: 10px;
 }
 .link-next {
-  color: blue;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #0f9b0f;
   padding: 10px;
   transition: 1s linear;
   &:hover {
