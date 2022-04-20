@@ -23,12 +23,6 @@ body {
   }
 }
 
-@media (max-width: 1024px) {
-  .social {
-    padding-right: 0px;
-    margin-top: 15px;
-  }
-}
 @media (max-width: 758px) {
   div#navbarNav.navbar-collapse.collapse.show {
     padding-left: 0;
@@ -41,22 +35,7 @@ body {
     fill: $color !important;
   }
 }
-.logo {
-  margin-right: 100px;
-}
-@media (max-width: 375px) {
-  .logo {
-    margin-right: 0px;
-  }
-}
-@media (max-width: 321px) {
-  .container {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-}
 .container-fluid {
-  padding: 0 !important;
   margin: 0 !important;
 }
 a.btn.btn-primary,
@@ -65,6 +44,9 @@ button.btn.btn-primary {
   &:hover {
     box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
   }
+}
+.responsivHeader {
+  padding: 0 !important;
 }
 a.navbar-brand {
   @include nav-brand;
@@ -100,9 +82,6 @@ li.nav-item.dropdown:hover {
     z-index: 9999;
   }
 }
-.social-link {
-  padding-left: 5px !important;
-}
 .img-social {
   transition: all 1s ease-out;
 }
@@ -136,44 +115,14 @@ li.nav-item.dropdown:hover {
 .breadcrumb-link {
   @include breadcrumb-link;
 }
-@media (max-width: 768px) {
-  .container-row {
-    margin-left: 100px !important;
+@media (max-width: 426px) {
+  .wrapper {
+    width: 330px;
   }
 }
-@media (max-width: 534px) {
-  .container-row {
-    margin-left: 50px !important;
-  }
-}
-@media (max-width: 456px) {
-  .container-row {
-    margin-left: 10px !important;
-  }
-}
-@media (max-width: 425px) {
-  .container-row {
-    margin-left: -15px !important;
-  }
-}
-@media (max-width: 379px) {
-  .container-row {
-    margin-left: -45px !important;
-  }
-}
-@media (max-width: 349px) {
-  .container-row {
-    margin-left: -55px !important;
-  }
-}
-@media (max-width: 338px) {
-  .container-row {
-    margin-left: -65px !important;
-  }
-}
-@media (max-width: 321px) {
-  .container-row {
-    margin-left: -60px !important;
+@media (max-width: 400px) {
+  .wrapper {
+    width: 300px;
   }
 }
 .title-front-face {
@@ -262,9 +211,7 @@ footer {
     color: #3498db;
   }
 }
-.column {
-  padding-right: 0px !important;
-}
+
 @media (max-width: 991px) {
   @include responsiv-menu;
 }

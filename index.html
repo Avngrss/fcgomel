@@ -16,8 +16,8 @@
     <div id="hellopreloader">
       <div id="hellopreloader_preload"></div>
     </div>
-    <header class="header sticky-lg-top">
-      <div class="container-fluid">
+    <header class="header  sticky-lg-top">
+      <div class="container-fluid responsivHeader">
         <div class="header-top bg-light d-flex justify-content-around">
           <div class="logo"  data-aos="fade-right" data-aos-once="true">
             <img  src="img/logo.png" alt="logo" />
@@ -88,7 +88,7 @@
             <div class="col-sm-6 column" data-aos="fade-up">
               <div class="card">
                 <div class="card-body">
-                  <a href="news.html#firstnews">
+                  <a href="../news.html#firstnews">
                     <img src="img/newsimg/onenews.jpg" class="card-img-top" alt="oneimg" />
                   </a>
                   <h5 class="card-title pt-2">Завтра наша команда проведет заключительный товарищеский матч межсезонья</h5>
@@ -97,8 +97,8 @@
               </div>
             </div>
             <div class="col-sm-6 column" data-aos="fade-up">
-              <div class="card flex-shrink-1">
-                <div class='embed-container'><iframe src='https://www.youtube.com/embed/qoIYxay59X8' frameborder='0' allowfullscreen></iframe></div>
+              <div class="card">
+                <div class='embed-container flex-fill'><iframe src='https://www.youtube.com/embed/qoIYxay59X8' frameborder='0' allowfullscreen></iframe></div>
                 <div class="card-body">
                   <h5 class="card-title pt-2">Комментарий Владимира Невинского после матча с "Арсеналом"</h5> 
                   <a href="pages/news.html" class="btn btn-primary">Узнать больше</a>
@@ -402,7 +402,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="info-players mt-3 text-end">
+                <div class="info-players mt-3 me-2 text-end pe-5">
                   <a  href="pages/team.html" class="btn btn-primary">Смотерть весь состав</a>
                 </div>
               </div>
@@ -432,141 +432,131 @@
               </div>
             </div>
            </div>
-           <div class="col-4-12 col-md-6" data-aos="fade-up">
-            <div class="table-img text-center position-relative">
-             <h3 class="text-center text-dark">Турнирная таблица Чемпионата Беларуси сезона 2020-2021 гг.</h3>
-             <button class="btn btn-primary text-center" style="position: relative; top: 50px; right: 0px;"  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-             Посмотреть таблицу
-            </button>            
-             <div class="offcanvas offcanvas-start bg-success" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-              <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Турнирная таблица Чемпионата Беларуси сезона 2020-2021 гг.</h5>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
-              </div>
-              <div class="offcanvas-body">
-                <div>
-                  <div class="col" data-aos="fade-left">
-                    <table class="table caption-top table-hover table-striped table-primary">
-                      <caption class="text-white">Список команд</caption>
-                      <thead>
-                        <tr>
-                          <th scope="col">М</th>
-                          <th scope="col">Команда</th>
-                          <th scope="col">Игры</th>
-                          <th scope="col">Очки</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>ФК "Шахтер" (Солигорск)</td>
-                          <td>30</td>
-                          <td>75</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>БАТЭ (Борисов)</td>
-                          <td>30</td>
-                          <td>65</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>ФК "Динамо" (Минск)</td>
-                          <td>30</td>
-                          <td>62</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">4</th>
-                          <td>ФК "Гомель"</td>
-                          <td>30</td>
-                          <td>59</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">5</th>
-                          <td>ФК "Рух" (Брест)</td>
-                          <td>30</td>
-                          <td>58</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">6</th>
-                          <td>ФК "Динамо" (Брест)</td>
-                          <td>30</td>
-                          <td>38</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">7</th>
-                          <td>ФК "Витебск"</td>
-                          <td>30</td>
-                          <td>37</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">8</th>
-                          <td>"Торпедо-БелАЗ" (Жодино)</td>
-                          <td>30</td>
-                          <td>36</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">9</th>
-                          <td>ФК "Слуцк"</td>
-                          <td>30</td>
-                          <td>35</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">10</th>
-                          <td>ФК "Ислочь" (Минский р-н)</td>
-                          <td>30</td>
-                          <td>34</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">11</th>
-                          <td>ФК "Неман" (Гродно)</td>
-                          <td>30</td>
-                          <td>34</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">12</th>
-                          <td>ФК "Минск"</td>
-                          <td>30</td>
-                          <td>33</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">13</th>
-                          <td>ФК "Энергетик-БГУ" (Минск)</td>
-                          <td>30</td>
-                          <td>33</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">14</th>
-                          <td>ФК "Славия" (Мозырь)</td>
-                          <td>30</td>
-                          <td>32</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">15</th>
-                          <td>ФК "Сморгонь"</td>
-                          <td>30</td>
-                          <td>19</td>
-                        </tr>
-                        <tr class="text-danger">
-                          <th scope="row">16</th>
-                          <td>ФК "Спутник" (Речица)</td>
-                          <td>30</td>
-                          <td>7</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <a class="btn btn-primary" href="pages/calendar.html">Подробная таблица</a>
-                  </div>
-                </div>
-              </div>
-             </div>
+           <div class="col-4-12 col-md-6" style="height: 50%;" data-aos="fade-up">
+            <h4 class="text-center text-white">Турнирная таблица Чемпионата Беларуси сезона 2020-2021</h4>
+            <input type="checkbox" class="read-more-checker" id="read-more-checker" />
+            <div class="limiter">
+              <div class="overflow-auto">
+                <table class="table caption-top table-hover table-striped table-primary">
+                  <caption class="text-white">Список команд</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">М</th>
+                      <th scope="col">Команда</th>
+                      <th scope="col">Игры</th>
+                      <th scope="col">Очки</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>ФК "Шахтер" (Солигорск)</td>
+                      <td>30</td>
+                      <td>75</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>БАТЭ (Борисов)</td>
+                      <td>30</td>
+                      <td>65</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>ФК "Динамо" (Минск)</td>
+                      <td>30</td>
+                      <td>62</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td>ФК "Гомель"</td>
+                      <td>30</td>
+                      <td>59</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">5</th>
+                      <td>ФК "Рух" (Брест)</td>
+                      <td>30</td>
+                      <td>58</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6</th>
+                      <td>ФК "Динамо" (Брест)</td>
+                      <td>30</td>
+                      <td>38</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">7</th>
+                      <td>ФК "Витебск"</td>
+                      <td>30</td>
+                      <td>37</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">8</th>
+                      <td>"Торпедо-БелАЗ" (Жодино)</td>
+                      <td>30</td>
+                      <td>36</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">9</th>
+                      <td>ФК "Слуцк"</td>
+                      <td>30</td>
+                      <td>35</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">10</th>
+                      <td>ФК "Ислочь" (Минский р-н)</td>
+                      <td>30</td>
+                      <td>34</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">11</th>
+                      <td>ФК "Неман" (Гродно)</td>
+                      <td>30</td>
+                      <td>34</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">12</th>
+                      <td>ФК "Минск"</td>
+                      <td>30</td>
+                      <td>33</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">13</th>
+                      <td>ФК "Энергетик-БГУ" (Минск)</td>
+                      <td>30</td>
+                      <td>33</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">14</th>
+                      <td>ФК "Славия" (Мозырь)</td>
+                      <td>30</td>
+                      <td>32</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">15</th>
+                      <td>ФК "Сморгонь"</td>
+                      <td>30</td>
+                      <td>19</td>
+                    </tr>
+                    <tr class="text-danger">
+                      <th scope="row">16</th>
+                      <td>ФК "Спутник" (Речица)</td>
+                      <td>30</td>
+                      <td>7</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button class="btn btn-primary" href="pages/calendar.html">Подробная таблица</button>     
+              </div> 
+             <div class="bottom"></div>
             </div>
+            <label for="read-more-checker" class="read-more-button"></label>
           </div>
-         </div>
         </div>
       </div>
+    </div>
     </section>
-    <section class="we-social mt-4 mb-4">
+    <section class="we-social mt-4">
       <div class="container">
         <h2 class="social-title text-white text-center" data-aos="fade-up"><a class="we-social-link" href="">Зелено-белые на просторах интернета</a></h2>
         <div class="container">
@@ -604,42 +594,42 @@
           </div>
       </div>
     </section>
-    <section class="sponsors mt-5 mb-3">
+    <section class="sponsors mb-3">
       <div class="container" data-aos="fade-up" style="border-bottom: solid 3px black;">
         <h2 class="text-white text-center social-title">Наши спонсоры и оффициальные партнеры</h2>
         <div class="container mt-3  pb-3 pt-4">
           <div class="row mb-3 mt-2 ps-lg-5">
-            <div class="col-sm-4">
+            <div class="col-sm-4 mt-2">
               <a target="_blank" href="https://www.belorusneft.by/">
                 <img src="img/footerimg/bekneft.png" class="img-fluid" alt="bekneft">
               </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 mt-2">
               <a target="_blank" href="https://progres.gomel.by/">
                 <img src="img/footerimg/proggres.png" class="img-fluid" alt="proggres">
               </a>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 mt-2">
                 <img src="img/footerimg/watertorg.jpg" class="img-fluid" alt="watertorg">
             </div>
           </div>
           <div class="row ms-5 ps-lg-5">
-            <div class="col-sm-3 ps-lg-5">
+            <div class="col-sm-3 mt-2">
               <a target="_blank" href="https://www.gomelenergo.by/index.php?lang=ru">
                 <img src="img/footerimg/gomelenergy.png" class="img-fluid" alt="gomelenergy">
               </a>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-3 mt-2">
               <a target="_blank" href="http://www.gomeloblgaz.by/">
                 <img src="img/footerimg/oblgaz.png" class="img-fluid" alt="oblgaz">
               </a>
             </div>
-            <div class="col-sm-3 p-sm-3">
+            <div class="col-sm-3 mt-2">
               <a target="_blank" href="https://klnleshoz.by/">
                 <img src="img/footerimg/leshoz.jpg" class="img-fluid" alt="leshoz">
               </a>
             </div>
-            <div class="col-sm-3 p-sm-3">
+            <div class="col-sm-3 mt-2">
               <a target="_blank" href="https://gdsk.by/">
                 <img src="img/footerimg/dsk.png" class="img-fluid" alt="dsk">
               </a>
@@ -755,7 +745,7 @@
                 <div class="invalid-feedback">
                 </div>
               </div>
-              <button type="submit"  class="btn btn-primary ms-xl-5">Отправить</button>
+              <button type="submit" class="btn btn-primary ms-xl-5">Отправить</button>
             </form>
             </div>
           </div>

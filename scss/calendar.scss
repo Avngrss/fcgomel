@@ -33,22 +33,7 @@ body {
     fill: #0f9b0f !important;
   }
 }
-.logo {
-  margin-right: 100px;
-}
-@media (max-width: 375px) {
-  .logo {
-    margin-right: 0px;
-  }
-}
-@media (max-width: 321px) {
-  .container {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-}
 .container-fluid {
-  padding: 0 !important;
   margin: 0 !important;
 }
 a.btn.btn-primary,
@@ -57,6 +42,9 @@ button.btn.btn-primary {
   &:hover {
     box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
   }
+}
+.responsivHeader {
+  padding: 0 !important;
 }
 a.navbar-brand {
   @include nav-brand;
@@ -83,9 +71,6 @@ li.nav-item.dropdown:hover {
     top: 34px;
     z-index: 9999;
   }
-}
-.social-link {
-  padding-left: 5px !important;
 }
 .img-social {
   transition: all 1s ease-out;
@@ -240,27 +225,7 @@ tr:hover {
     text-align: left;
   }
 }
-@media (max-width: 425px) {
-  .table-tab .td-title {
-    font-size: 12px;
-  }
-  .td-text {
-    font-size: 12px;
-  }
-  .gomel,
-  .belshina,
-  .dnepr,
-  .slavia,
-  .shaxter,
-  .minsk,
-  .vitebsk,
-  .arsenal,
-  .isloch,
-  .dinamo,
-  .bate {
-    font-weight: 500;
-  }
-}
+
 .rezult {
   font-weight: bold;
   font-style: italic;
@@ -273,27 +238,6 @@ tr:hover {
   text-shadow: 2px 2px 2px #1fce0a;
   font-weight: bold;
   text-transform: uppercase;
-}
-@media (max-width: 321px) {
-  .td-title {
-    font-size: 12px;
-  }
-  .td-text {
-    font-size: 12px;
-  }
-  .gomel,
-  .belshina,
-  .dnepr,
-  .slavia,
-  .shaxter,
-  .minsk,
-  .vitebsk,
-  .arsenal,
-  .isloch,
-  .dinamo,
-  .bate {
-    font-weight: 500;
-  }
 }
 footer {
   @include footer;

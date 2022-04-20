@@ -171,18 +171,10 @@ select {
 }
 
 body {
+  background: linear-gradient(45deg, #027402, white);
   width: 100%;
   min-height: 100vh;
   font-family: "Roboto", sans-serif;
-}
-
-body a {
-  text-decoration: none;
-  color: #ffffff;
-}
-
-body a:hover {
-  color: black;
 }
 
 @media (max-width: 1024px) {
@@ -198,6 +190,10 @@ body a:hover {
   }
 }
 
+.responsivHeader {
+  padding: 0 !important;
+}
+
 .icons {
   width: 30px;
   height: 30px;
@@ -207,25 +203,7 @@ body a:hover {
   fill: #0f9b0f !important;
 }
 
-.logo {
-  margin-right: 100px;
-}
-
-@media (max-width: 375px) {
-  .logo {
-    margin-right: 0px;
-  }
-}
-
-@media (max-width: 321px) {
-  .container {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-}
-
 .container-fluid {
-  padding: 0 !important;
   margin: 0 !important;
 }
 
@@ -325,10 +303,6 @@ li.nav-item.dropdown:hover ul.dropdown-menu {
   z-index: 9999;
 }
 
-.social-link {
-  padding-left: 5px !important;
-}
-
 .img-social {
   -webkit-transition: all 1s ease-out;
   transition: all 1s ease-out;
@@ -368,6 +342,15 @@ li.nav-item.dropdown:hover ul.dropdown-menu {
 .breadcrumb-link:hover {
   color: #ffffff;
   text-decoration: underline;
+}
+
+div[class*="column"] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
 }
 
 .video-info {
@@ -472,6 +455,21 @@ footer .yt {
   margin-left: 10px;
 }
 
+.phone-footer {
+  height: 30px;
+  width: 20px;
+  padding-bottom: 5px;
+  padding-right: 5px;
+  fill: #fff;
+}
+
+.mail-footer {
+  height: 30px;
+  width: 20px;
+  fill: #fff;
+  padding-bottom: 4px;
+}
+
 .footer-color {
   background-color: #423f42;
 }
@@ -498,15 +496,19 @@ footer .yt {
   }
 }
 
+.form-label {
+  color: #fff;
+}
+
+.responsivHeader {
+  padding: 0 !important;
+}
+
 .title-footer {
   background: #fff;
   border-radius: 15px;
   color: #ffffff;
   opacity: 0.8;
-}
-
-.form-label {
-  color: #fff;
 }
 
 @media (max-width: 425px) {
@@ -538,8 +540,9 @@ footer .yt {
 }
 
 .text-contact {
-  font-family: "PT Sans Narrow", sans-serif;
-  font-size: 1.2rem;
+  font-family: "Libre Baskerville", serif;
+  color: linear-gradient(45deg, #027402, white);
+  font-size: 1rem;
 }
 
 .phone {
@@ -556,21 +559,6 @@ footer .yt {
 
 .mail:hover {
   color: #3498db;
-}
-
-.phone-footer {
-  height: 30px;
-  width: 20px;
-  padding-bottom: 5px;
-  padding-right: 5px;
-  fill: #fff;
-}
-
-.mail-footer {
-  height: 30px;
-  width: 20px;
-  fill: #fff;
-  padding-bottom: 4px;
 }
 
 @media (max-width: 991px) {

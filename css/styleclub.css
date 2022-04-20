@@ -193,8 +193,11 @@ body h1 {
   font-family: "Libre Baskerville", serif;
 }
 
-.container-fluid {
+.responsivHeader {
   padding: 0 !important;
+}
+
+.container-fluid {
   margin: 0 !important;
 }
 
@@ -293,10 +296,6 @@ li.nav-item.dropdown:hover ul.dropdown-menu {
   z-index: 9999;
 }
 
-.social-link {
-  padding-left: 5px !important;
-}
-
 .img-social {
   -webkit-transition: all 1s ease-out;
   transition: all 1s ease-out;
@@ -358,6 +357,7 @@ li {
 }
 
 .stadium-info {
+  font-size: 1.3rem;
   font-family: "Cabin", sans-serif;
   font-style: italic;
 }
@@ -368,7 +368,7 @@ img.img_adm {
   transition: all 1s ease-out;
 }
 
-img:hover {
+.img_adm:hover {
   -webkit-box-shadow: inset 0px 0px 10px 10px #1fa15a, 0px 5px 10px 10px #1fa15a;
           box-shadow: inset 0px 0px 10px 10px #1fa15a, 0px 5px 10px 10px #1fa15a;
   -webkit-transform: scale(1.1);
@@ -464,13 +464,14 @@ img:hover {
 
 .title-clubs {
   text-shadow: 5px 1px 2px white;
+  padding: 5px;
 }
 
 .dash {
   position: relative;
   list-style: none;
   font-family: "Caveat", cursive;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   color: #2d2d2d;
 }
 
@@ -507,9 +508,9 @@ img:hover {
 }
 
 .text-training {
-  font-family: "Libre Baskerville", serif;
+  font-family: "Mukta", sans-serif;
   font-size: 1.3rem;
-  color: black;
+  color: #fff;
 }
 
 .price {
@@ -532,29 +533,33 @@ img:hover {
 }
 
 .info-spans {
-  font-family: "Fredericka the Great", cursive;
+  font-family: "Ramaraja", serif;
+  font-size: 1.3rem;
 }
 
 .txt_training {
   font-family: "Ramaraja", serif;
   font-size: 1.5rem;
-  color: #2d2d2d;
+  color: #fff;
 }
 
 .phone-links {
   text-decoration: none;
-  color: blue;
+  color: #2d2d2d;
 }
 
 .adres a {
+  font-family: "Cabin", sans-serif;
+  font-style: italic;
   font-size: 1.25rem;
-  color: black;
+  color: #fff;
   text-decoration: none;
 }
 
 .adress-text {
-  font-size: 1.4rem;
-  font-family: "Libre Baskerville", serif;
+  font-size: 1.3rem;
+  font-family: "Cabin", sans-serif;
+  font-style: italic;
   color: black;
 }
 

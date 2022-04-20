@@ -33,42 +33,13 @@ body {
     fill: #0f9b0f !important;
   }
 }
-.logo {
-  margin-right: 100px;
-}
-@media (max-width: 375px) {
-  .logo {
-    margin-right: 0px;
-  }
-}
-
-@media (max-width: 1025px) {
-  .container {
-    margin-left: 20px !important;
-    padding-right: 20px !important;
-  }
-  .row {
-    padding-left: 8%;
-  }
-}
 @media (max-width: 426px) {
-  .container {
-    margin: 0px !important;
-    padding: 0px !important;
-  }
   .slider__thumbnails {
     display: none;
   }
 }
-@media (max-width: 320px) {
-  .container {
-    margin: 0px !important;
-    padding: 0px !important;
-  }
-}
 
 .container-fluid {
-  padding: 0 !important;
   margin: 0 !important;
 }
 a.btn.btn-primary,
@@ -97,6 +68,9 @@ nav.navbar-light .navbar-nav .nav-link {
   button#dropdownMenuButton1.btn.btn-primary.dropdown-toggle {
     width: 300px;
   }
+}
+.responsivHeader {
+  padding: 0 !important;
 }
 .modal-text {
   font-family: "Libre Baskerville", serif;

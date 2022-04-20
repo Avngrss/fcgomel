@@ -2,16 +2,10 @@
 @import "variables.scss";
 
 body {
+  background: $background;
   width: 100%;
   min-height: 100vh;
   font-family: "Roboto", sans-serif;
-  a {
-    text-decoration: none;
-    color: #ffffff;
-    &:hover {
-      color: black;
-    }
-  }
 }
 @media (max-width: 1024px) {
   .social {
@@ -24,6 +18,9 @@ body {
     padding-left: 0;
   }
 }
+.responsivHeader {
+  padding: 0 !important;
+}
 .icons {
   width: 30px;
   height: 30px;
@@ -31,22 +28,8 @@ body {
     fill: #0f9b0f !important;
   }
 }
-.logo {
-  margin-right: 100px;
-}
-@media (max-width: 375px) {
-  .logo {
-    margin-right: 0px;
-  }
-}
-@media (max-width: 321px) {
-  .container {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-}
+
 .container-fluid {
-  padding: 0 !important;
   margin: 0 !important;
 }
 .title {
@@ -94,9 +77,6 @@ li.nav-item.dropdown:hover {
     z-index: 9999;
   }
 }
-.social-link {
-  padding-left: 5px !important;
-}
 .img-social {
   transition: all 1s ease-out;
 }
@@ -124,6 +104,10 @@ li.nav-item.dropdown:hover {
 }
 .breadcrumb-link {
   @include breadcrumb-link;
+}
+
+div[class*="column"] {
+  @include column;
 }
 .video-info {
   position: absolute;
@@ -184,6 +168,12 @@ li.nav-item.dropdown:hover {
 footer {
   @include footer;
 }
+.phone-footer {
+  @include phone-footer;
+}
+.mail-footer {
+  @include mail-footer;
+}
 .footer-color {
   background-color: rgb(66, 63, 66);
 }
@@ -208,11 +198,14 @@ footer {
     }
   }
 }
-.title-footer {
-  @include title-footer;
-}
 .form-label {
   color: #fff;
+}
+.responsivHeader {
+  padding: 0 !important;
+}
+.title-footer {
+  @include title-footer;
 }
 @media (max-width: 425px) {
   .title-footer {
@@ -235,8 +228,9 @@ footer {
   @include footer-menu;
 }
 .text-contact {
-  font-family: "PT Sans Narrow", sans-serif;
-  font-size: 1.2rem;
+  font-family: "Libre Baskerville", serif;
+  color: $background;
+  font-size: 1rem;
 }
 .phone {
   color: #3498db;
@@ -249,12 +243,6 @@ footer {
   &:hover {
     color: #3498db;
   }
-}
-.phone-footer {
-  @include phone-footer;
-}
-.mail-footer {
-  @include mail-footer;
 }
 @media (max-width: 991px) {
   @include responsiv-menu;
