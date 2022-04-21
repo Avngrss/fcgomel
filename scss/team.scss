@@ -12,18 +12,12 @@ body {
     text-decoration: none;
     &:hover {
       color: #fff;
-      text-decoration: underline;
     }
   }
   h2,
   h1 {
     background: $background;
     font-family: "Libre Baskerville", serif;
-  }
-}
-@media (max-width: 758px) {
-  div#navbarNav.navbar-collapse.collapse.show {
-    padding-left: 0;
   }
 }
 .container-fluid {
@@ -54,6 +48,14 @@ a.navbar-brand {
 nav.navbar-light .navbar-nav .nav-link {
   @include nav-light;
 }
+.hiddenLogo {
+  display: none;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-around;
+}
 .kovalev,
 .pantya,
 .affi,
@@ -79,7 +81,18 @@ p.card-text {
 .bot-header {
   border-radius: 15px 15px;
 }
-
+@media (max-width: 320px) {
+  @include responsiv_four;
+}
+@media (max-width: 375px) {
+  @include responsiv_three;
+}
+@media (max-width: 425px) {
+  @include responsiv_two;
+}
+@media (max-width: 768px) {
+  @include responsiv;
+}
 .breadcrumb-link {
   @include breadcrumb-link;
 }
@@ -362,13 +375,11 @@ footer {
   font-size: 1.2rem;
 }
 .phone {
-  color: #3498db;
   &:hover {
-    color: #45b649;
+    color: #3498db;
   }
 }
 .mail {
-  color: #45b649;
   &:hover {
     color: #3498db;
   }
@@ -402,6 +413,9 @@ img.img_adm {
 li {
   color: #0f9b0f;
 }
+.logotext {
+  @include logotext;
+}
 .black-span {
   font-weight: bold;
 }
@@ -417,19 +431,4 @@ li {
 }
 .mail-footer {
   @include mail-footer;
-}
-@media (max-width: 991px) {
-  @include responsiv-menu;
-}
-@media (max-width: 568px) {
-  @include responsiv_two;
-}
-@media (max-width: 536px) {
-  @include responsiv_three;
-}
-@media (max-width: 426px) {
-  @include responsiv_four;
-}
-@media (max-width: 991px) {
-  @include res_menu;
 }

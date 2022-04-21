@@ -7,18 +7,11 @@ body {
   background: -webkit- $background;
   background: -moz- $background;
   background: $background;
-}
-@media (max-width: 1024px) {
-  .social {
-    padding-right: 0px;
-    margin-top: 15px;
+  a {
+    text-decoration: none;
   }
 }
-@media (max-width: 758px) {
-  div#navbarNav.navbar-collapse.collapse.show {
-    padding-left: 0;
-  }
-}
+
 .icons {
   width: 30px;
   height: 30px;
@@ -26,22 +19,15 @@ body {
     fill: $color !important;
   }
 }
-.logo {
-  margin-right: 100px;
+.hiddenLogo {
+  display: none;
 }
-@media (max-width: 375px) {
-  .logo {
-    margin-right: 0px;
-  }
-}
-@media (max-width: 321px) {
-  .container {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
+
+.header-top {
+  display: flex;
+  justify-content: space-around;
 }
 .container-fluid {
-  padding: 0 !important;
   margin: 0 !important;
 }
 a.btn.btn-primary,
@@ -65,6 +51,9 @@ a.dropdown-item {
 li.nav-item.dropdown {
   position: relative;
 }
+.responsivHeader {
+  padding: 0 !important;
+}
 ul.dropdown-menu {
   display: none;
   margin-bottom: -350px;
@@ -76,9 +65,6 @@ li.nav-item.dropdown:hover {
     top: 34px;
     z-index: 9999;
   }
-}
-.social-link {
-  padding-left: 5px !important;
 }
 .img-social {
   transition: all 1s ease-out;
@@ -111,6 +97,18 @@ li.nav-item.dropdown:hover {
     color: #3498db;
     text-decoration: underline;
   }
+}
+@media (max-width: 320px) {
+  @include responsiv_four;
+}
+@media (max-width: 375px) {
+  @include responsiv_three;
+}
+@media (max-width: 425px) {
+  @include responsiv_two;
+}
+@media (max-width: 768px) {
+  @include responsiv;
 }
 @media (max-width: 426px) {
   .info-text {
@@ -158,9 +156,10 @@ li.nav-item.dropdown:hover {
   text-align: left;
 }
 .breadcrumb-link {
-  @include breadcrumb-link;
+  @include breadcrumb-linkk;
 }
 .dash {
+  color: #fff;
   position: relative;
   list-style: none;
   font-family: "Ramaraja", serif;
@@ -174,6 +173,7 @@ li.nav-item.dropdown:hover {
   }
   100% {
     background: #fff;
+    color: black;
   }
 }
 @keyframes color-change {
@@ -182,6 +182,7 @@ li.nav-item.dropdown:hover {
   }
   100% {
     background: #fff;
+    color: black;
   }
 }
 .dash::before {
@@ -250,19 +251,17 @@ footer {
   font-family: "PT Sans Narrow", sans-serif;
   font-size: 1.2rem;
 }
-.phone {
-  color: #3498db;
-  &:hover {
-    color: #45b649;
-  }
-}
 .mail-info {
   fill: grey;
   height: 30px;
   width: 20px;
 }
+.phone {
+  &:hover {
+    color: #3498db;
+  }
+}
 .mail {
-  color: #45b649;
   &:hover {
     color: #3498db;
   }
@@ -272,19 +271,4 @@ footer {
 }
 .mail-footer {
   @include mail-footer;
-}
-@media (max-width: 991px) {
-  @include responsiv-menu;
-}
-@media (max-width: 568px) {
-  @include responsiv_two;
-}
-@media (max-width: 536px) {
-  @include responsiv_three;
-}
-@media (max-width: 426px) {
-  @include responsiv_four;
-}
-@media (max-width: 991px) {
-  @include res_menu;
 }

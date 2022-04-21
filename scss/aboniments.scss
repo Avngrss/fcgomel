@@ -31,23 +31,7 @@ body {
     fill: $color !important;
   }
 }
-.logo {
-  margin-right: 100px;
-}
-@media (max-width: 375px) {
-  .logo {
-    margin-right: 0px;
-  }
-}
-
-@media (max-width: 321px) {
-  .container {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-}
 .container-fluid {
-  padding: 0 !important;
   margin: 0 !important;
 }
 a.btn.btn-primary,
@@ -83,8 +67,9 @@ li.nav-item.dropdown:hover {
     z-index: 9999;
   }
 }
-.social-link {
-  padding-left: 5px !important;
+.header-top {
+  display: flex;
+  justify-content: space-around;
 }
 .img-social {
   transition: all 1s ease-out;
@@ -95,20 +80,20 @@ li.nav-item.dropdown:hover {
 .bot-header {
   border-radius: 15px 15px;
 }
-@media (max-width: 991px) {
-  @include responsiv-menu;
-}
-@media (max-width: 568px) {
-  @include responsiv_two;
-}
-@media (max-width: 536px) {
-  @include responsiv_three;
-}
-@media (max-width: 426px) {
+@media (max-width: 320px) {
   @include responsiv_four;
 }
-@media (max-width: 991px) {
-  @include res_menu;
+@media (max-width: 375px) {
+  @include responsiv_three;
+}
+@media (max-width: 425px) {
+  @include responsiv_two;
+}
+@media (max-width: 768px) {
+  @include responsiv;
+}
+.logotext {
+  @include logotext;
 }
 .title-abonents {
   background: $background;
@@ -145,6 +130,7 @@ h4 {
   list-style: none;
   font-family: "Ramaraja", serif;
   font-size: 1.5rem;
+  color: #fff;
 }
 .dash::before {
   content: "";
@@ -230,18 +216,6 @@ footer {
 .mail-footer {
   @include mail-footer;
 }
-@media (max-width: 991px) {
-  @include responsiv-menu;
-}
-@media (max-width: 568px) {
-  @include responsiv_two;
-}
-@media (max-width: 536px) {
-  @include responsiv_three;
-}
 @media (max-width: 426px) {
   @include responsiv_four;
-}
-@media (max-width: 991px) {
-  @include res_menu;
 }

@@ -15,17 +15,6 @@ body {
     }
   }
 }
-@media (max-width: 1024px) {
-  .social {
-    padding-right: 0px;
-    margin-top: 15px;
-  }
-}
-@media (max-width: 758px) {
-  div#navbarNav.navbar-collapse.collapse.show {
-    padding-left: 0;
-  }
-}
 .icons {
   width: 30px;
   height: 30px;
@@ -64,6 +53,13 @@ ul.dropdown-menu {
   display: none;
   margin-bottom: -350px;
 }
+.hiddenLogo {
+  display: none;
+}
+.header-top {
+  display: flex;
+  justify-content: space-around;
+}
 li.nav-item.dropdown:hover {
   ul.dropdown-menu {
     display: block;
@@ -80,6 +76,18 @@ li.nav-item.dropdown:hover {
 }
 .bot-header {
   border-radius: 15px 15px;
+}
+@media (max-width: 320px) {
+  @include responsiv_four;
+}
+@media (max-width: 375px) {
+  @include responsiv_three;
+}
+@media (max-width: 425px) {
+  @include responsiv_two;
+}
+@media (max-width: 768px) {
+  @include responsiv;
 }
 h1 {
   text-shadow: 2px 2px 2px #45ce10;
@@ -256,6 +264,9 @@ footer {
   color: white;
   text-shadow: 4px 1px 8px #14ff0a;
 }
+.logotext {
+  @include logotext;
+}
 @media (max-width: 425px) {
   .colform {
     textarea {
@@ -294,13 +305,11 @@ footer {
   font-size: 1.2rem;
 }
 .phone {
-  color: #3498db;
   &:hover {
-    color: #45b649;
+    color: #3498db;
   }
 }
 .mail {
-  color: #45b649;
   &:hover {
     color: #3498db;
   }
@@ -310,19 +319,4 @@ footer {
 }
 .mail-footer {
   @include mail-footer;
-}
-@media (max-width: 991px) {
-  @include responsiv-menu;
-}
-@media (max-width: 568px) {
-  @include responsiv_two;
-}
-@media (max-width: 536px) {
-  @include responsiv_three;
-}
-@media (max-width: 426px) {
-  @include responsiv_four;
-}
-@media (max-width: 991px) {
-  @include res_menu;
 }

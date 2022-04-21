@@ -12,16 +12,16 @@
     <title>Календарь</title>
   </head>
   <body>
-    <header class="header  sticky-lg-top">
+    <header class="header  sticky-sm-top" >
       <div class="container-fluid responsivHeader">
-        <div class="header-top bg-light d-flex justify-content-around">
+        <div class="header-top bg-light">
           <div class="logo"  data-aos="fade-right" data-aos-once="true">
-            <img  src="../img/logo.png" alt="logo" />
+            <a href="index.html"><img class="img-fluid logo-img" src="../img/other/logo.png" alt="logo" /></a>
           </div>
           <nav class="navbar navbar-expand-lg navbar-light bg-light"  data-aos="flip-up" data-aos-once="true">
             <div class="container-fluid">
-              <a class="navbar-brand d-md-flex" data-aos="fade-right" data-aos-once="true" href="../index.html">Главная</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" style="margin-left: 80px;" aria-label="Переключатель навигации">
+              <a class="navbar-brand" data-aos="fade-right" data-aos-once="true" href="../index.html"><img class="hiddenLogo" src="../img/other/logo.png"><span class="hidden">Главная</span></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Переключатель навигации">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse"  id="navbarNav">
@@ -456,7 +456,7 @@
         <div class="row justify-content-md-center footer-color pb-4">
           <div class="col-sm text-white text-center  mt-4 colgomel ms-xl-2"">
             <h3 class="title-footer ms-xl-2 text-black ">Футбольный клуб "Гомель"</h3>
-            <img src="../img/logo1.png" class="img-fluid" alt="logo1">
+            <img src="../img/other/logo1.png" class="img-fluid" alt="logo1">
             <p class="pt-3 logotext">Сайт футбольного клуба «Гомель»</p>
           </div>
           <div class="col-sm text-center mt-4">
@@ -526,8 +526,8 @@
             <svg class="phone-footer">
               <use xlink:href="#phone"></use>
             </svg>
-            Тел./факс:	<a class="phone" href="tel:(+375 232) 34-99-80">(+375 232) 34-99-80</a> (приемная)
-            <a class="phone" href="tel:34-99-81 ">34-99-81 </a>(бухгалтерия)
+            Тел./факс:	<a class="phone logotext" href="tel:(+375 232) 34-99-80">(+375 232) 34-99-80</a> (приемная)
+            <a class="phone logotext" href="tel:34-99-81 ">34-99-81 </a>(бухгалтерия)
           </div>
           <div class="col-sm text-center text-white text-contact">
             <svg display="none">
@@ -538,8 +538,8 @@
             <svg class="mail-footer">
               <use xlink:href="#mail"></use>
             </svg>
-            E-mail:	<a class="mail" href="mailto:fc_gomel@mail.ru"><i>fc_gomel@mail.ru </i></a>(клуб)
-            <a class="mail" href="mailto:fcgomel_press@mail.ru"><i>fcgomel_press@mail.ru</i></a> (пресс-служба)</div>
+            E-mail:	<a class="mail logotext" href="mailto:fc_gomel@mail.ru"><i>fc_gomel@mail.ru </i></a>(клуб)
+            <a class="mail logotext" href="mailto:fcgomel_press@mail.ru"><i>fcgomel_press@mail.ru</i></a> (пресс-служба)</div>
             <div class="col-sm text-center text-white text-contact">Фактический адрес:	Беларусь, 246050, Гомель, пл. Восстания, 1</div>
           </div>
         </div>
@@ -548,14 +548,14 @@
             <div class="mb-3 ms-xl-5">
               <form action="" class="needs-validation" validate>
                 <label for="validationCustom03"  class="form-label" style="width: 300px;">Ваш E-mail</label>
-                <input type="text" type='e-mail' class="form-control" id="validationCustom03" placeholder="Введите ваш комментарий" style="width: 70%;" required>
+                <input type="text" type='e-mail' class="form-control" id="validationCustom03" style="width: 70%;" required>
                 <div class="invalid-feedback">
                  Укажите ваш E-mail
                 </div>
             </div>
             <div class="mb-3 ms-xl-5">
               <label for="validationCustom05" class="form-label">Ваш комментарий</label>
-              <textarea type="text" class="form-control" id="validationCustom05" rows="3" style="width: 70%;" required></textarea>
+              <textarea type="text" class="form-control" id="validationCustom05" rows="3" placeholder="Введите ваш комментарий" style="width: 70%;" required></textarea>
               <div class="invalid-feedback">
               </div>
             </div>

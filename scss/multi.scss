@@ -38,7 +38,13 @@ body {
     display: none;
   }
 }
-
+.hiddenLogo {
+  display: none;
+}
+.header-top {
+  display: flex;
+  justify-content: space-around;
+}
 .container-fluid {
   margin: 0 !important;
 }
@@ -49,8 +55,17 @@ button.btn.btn-primary {
     box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
   }
 }
-button#dropdownMenuButton1.btn.btn-primary.dropdown-toggle {
-  transform: skew(160deg);
+@media (max-width: 320px) {
+  @include responsiv_four;
+}
+@media (max-width: 375px) {
+  @include responsiv_three;
+}
+@media (max-width: 425px) {
+  @include responsiv_two;
+}
+@media (max-width: 768px) {
+  @include responsiv;
 }
 a.navbar-brand {
   @include nav-brand;
@@ -115,9 +130,6 @@ li.nav-item.dropdown:hover {
     top: 34px;
     z-index: 9999;
   }
-}
-.social-link {
-  padding-left: 5px !important;
 }
 .img-social {
   transition: all 1s ease-out;
@@ -217,9 +229,8 @@ footer {
   font-size: 1.2rem;
 }
 .phone {
-  color: #3498db;
   &:hover {
-    color: #45b649;
+    color: #3498db;
   }
 }
 .mail-info {
@@ -228,7 +239,6 @@ footer {
   width: 20px;
 }
 .mail {
-  color: #45b649;
   &:hover {
     color: #3498db;
   }
@@ -238,19 +248,4 @@ footer {
 }
 .mail-footer {
   @include mail-footer;
-}
-@media (max-width: 991px) {
-  @include responsiv-menu;
-}
-@media (max-width: 568px) {
-  @include responsiv_two;
-}
-@media (max-width: 536px) {
-  @include responsiv_three;
-}
-@media (max-width: 426px) {
-  @include responsiv_four;
-}
-@media (max-width: 991px) {
-  @include res_menu;
 }

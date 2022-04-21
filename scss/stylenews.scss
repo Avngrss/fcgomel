@@ -7,17 +7,6 @@ body {
   min-height: 100vh;
   font-family: "Roboto", sans-serif;
 }
-@media (max-width: 1024px) {
-  .social {
-    padding-right: 0px;
-    margin-top: 15px;
-  }
-}
-@media (max-width: 758px) {
-  div#navbarNav.navbar-collapse.collapse.show {
-    padding-left: 0;
-  }
-}
 .responsivHeader {
   padding: 0 !important;
 }
@@ -28,7 +17,13 @@ body {
     fill: #0f9b0f !important;
   }
 }
-
+.header-top {
+  display: flex;
+  justify-content: space-around;
+}
+.hiddenLogo {
+  display: none;
+}
 .container-fluid {
   margin: 0 !important;
 }
@@ -85,6 +80,18 @@ li.nav-item.dropdown:hover {
 }
 .bot-header {
   border-radius: 15px 15px;
+}
+@media (max-width: 320px) {
+  @include responsiv_four;
+}
+@media (max-width: 375px) {
+  @include responsiv_three;
+}
+@media (max-width: 425px) {
+  @include responsiv_two;
+}
+@media (max-width: 768px) {
+  @include responsiv;
 }
 .embed-container {
   position: relative;
@@ -224,6 +231,9 @@ footer {
 .footer-social {
   @include footer-social;
 }
+.logotext {
+  @include logotext;
+}
 .footer-menu {
   @include footer-menu;
 }
@@ -233,29 +243,12 @@ footer {
   font-size: 1rem;
 }
 .phone {
-  color: #3498db;
-  &:hover {
-    color: #45b649;
-  }
-}
-.mail {
-  color: #45b649;
   &:hover {
     color: #3498db;
   }
 }
-@media (max-width: 991px) {
-  @include responsiv-menu;
-}
-@media (max-width: 568px) {
-  @include responsiv_two;
-}
-@media (max-width: 536px) {
-  @include responsiv_three;
-}
-@media (max-width: 426px) {
-  @include responsiv_four;
-}
-@media (max-width: 991px) {
-  @include res_menu;
+.mail {
+  &:hover {
+    color: #3498db;
+  }
 }

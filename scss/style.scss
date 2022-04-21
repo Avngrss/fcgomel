@@ -19,14 +19,15 @@ body {
   color: #0f9b0f;
   font-family: "Fredericka the Great", cursive;
 }
-
+.hiddenLog {
+  display: none;
+}
 .hover-text-one {
   padding-top: 3.12rem;
   background-image: url(../img/image.jfif);
   background-repeat: no-repeat;
   min-height: 100%;
 }
-
 a.btn.btn-primary,
 button.btn.btn-primary {
   @include btn-prm;
@@ -58,6 +59,13 @@ nav.navbar-light .navbar-nav .nav-link {
   transform: scale(1.3);
   fill: #0f9b0f;
 }
+.header-top {
+  display: flex;
+  justify-content: space-around;
+}
+.hiddenLogo {
+  display: none;
+}
 .bot-header {
   border-radius: 15px 15px;
 }
@@ -66,12 +74,7 @@ nav.navbar-light .navbar-nav .nav-link {
 }
 .img_one {
   width: 100%;
-}
-.img_one {
   min-height: 30vh;
-}
-.social {
-  padding: 10px;
 }
 .title-club {
   position: absolute;
@@ -516,6 +519,9 @@ footer {
   color: $background;
   font-size: 1rem;
 }
+.logotext {
+  @include logotext;
+}
 .phone {
   color: #3498db;
   &:hover {
@@ -528,18 +534,16 @@ footer {
     color: #3498db;
   }
 }
-@media (max-width: 991px) {
-  @include responsiv-menu;
-}
-@media (max-width: 568px) {
-  @include responsiv_two;
-}
-@media (max-width: 536px) {
-  @include responsiv_three;
-}
-@media (max-width: 426px) {
+
+@media (max-width: 320px) {
   @include responsiv_four;
 }
-@media (max-width: 991px) {
-  @include res_menu;
+@media (max-width: 375px) {
+  @include responsiv_three;
+}
+@media (max-width: 425px) {
+  @include responsiv_two;
+}
+@media (max-width: 768px) {
+  @include responsiv;
 }
