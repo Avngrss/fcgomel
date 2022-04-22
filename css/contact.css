@@ -519,6 +519,15 @@ li.nav-item.dropdown:hover ul.dropdown-menu {
   }
 }
 
+.breadcrumb-link {
+  color: #027402;
+  text-decoration: none;
+}
+
+.breadcrumb-link:hover {
+  color: #ffffff;
+}
+
 .title-contaks {
   background: linear-gradient(45deg, #027402, white);
   text-shadow: 5px -1px 2px #ededed;
@@ -656,4 +665,19 @@ footer .yt {
   width: 20px;
   fill: #fff;
   padding-bottom: 4px;
+}
+
+.logotext {
+  font-family: "Lora", serif;
+  font-size: 1.3rem;
+  color: white;
+  text-shadow: 4px 1px 8px #14ff0a;
+}
+
+.phone:hover {
+  color: #3498db;
+}
+
+.mail:hover {
+  color: #3498db;
 }

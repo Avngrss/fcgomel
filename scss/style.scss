@@ -8,9 +8,14 @@ body {
   background: -webkit- $background;
   background: -moz- $background;
   background: $background;
-  animation: gradiens 6s ease infinite;
-  background-size: 300% 300% 300%;
   font-family: "Roboto", sans-serif;
+  a {
+    text-decoration: none;
+    color: #ffffff;
+    &:hover {
+      color: black;
+    }
+  }
 }
 .container-fluid {
   margin: 0 !important;
@@ -469,12 +474,6 @@ footer {
     margin-left: 0px;
   }
 }
-.logotext {
-  font-family: "Lora", serif;
-  font-size: 1.3rem;
-  color: white;
-  text-shadow: 4px 1px 8px #14ff0a;
-}
 @media (max-width: 425px) {
   .colform {
     textarea {
@@ -523,13 +522,11 @@ footer {
   @include logotext;
 }
 .phone {
-  color: #3498db;
   &:hover {
-    color: #45b649;
+    color: #3498db;
   }
 }
 .mail {
-  color: #45b649;
   &:hover {
     color: #3498db;
   }

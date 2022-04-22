@@ -188,19 +188,6 @@ body a:hover {
   color: black;
 }
 
-@media (max-width: 1024px) {
-  .social {
-    padding-right: 0px;
-    margin-top: 15px;
-  }
-}
-
-@media (max-width: 758px) {
-  div#navbarNav.navbar-collapse.collapse.show {
-    padding-left: 0;
-  }
-}
-
 .icons {
   width: 30px;
   height: 30px;

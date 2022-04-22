@@ -193,6 +193,15 @@ body h1 {
   font-family: "Libre Baskerville", serif;
 }
 
+body a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+body a:hover {
+  color: black;
+}
+
 .responsivHeader {
   padding: 0 !important;
 }

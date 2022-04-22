@@ -177,6 +177,15 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+body a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+body a:hover {
+  color: black;
+}
+
 .responsivHeader {
   padding: 0 !important;
 }
@@ -633,13 +642,6 @@ footer .yt {
   .colgomel {
     margin-left: 0px;
   }
-}
-
-.logotext {
-  font-family: "Lora", serif;
-  font-size: 1.3rem;
-  color: white;
-  text-shadow: 4px 1px 8px #14ff0a;
 }
 
 @media (max-width: 425px) {

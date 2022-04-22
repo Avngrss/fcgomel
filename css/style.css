@@ -178,10 +178,16 @@ body {
   background: -webkit- linear-gradient(45deg, #027402, white);
   background: -moz- linear-gradient(45deg, #027402, white);
   background: linear-gradient(45deg, #027402, white);
-  -webkit-animation: gradiens 6s ease infinite;
-          animation: gradiens 6s ease infinite;
-  background-size: 300% 300% 300%;
   font-family: "Roboto", sans-serif;
+}
+
+body a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+body a:hover {
+  color: black;
 }
 
 .container-fluid {
@@ -1002,13 +1008,6 @@ footer .yt {
   }
 }
 
-.logotext {
-  font-family: "Lora", serif;
-  font-size: 1.3rem;
-  color: white;
-  text-shadow: 4px 1px 8px #14ff0a;
-}
-
 @media (max-width: 425px) {
   .colform textarea {
     width: 97% !important;
@@ -1074,16 +1073,8 @@ footer .yt {
   text-shadow: 4px 1px 8px #14ff0a;
 }
 
-.phone {
-  color: #3498db;
-}
-
 .phone:hover {
-  color: #45b649;
-}
-
-.mail {
-  color: #45b649;
+  color: #3498db;
 }
 
 .mail:hover {

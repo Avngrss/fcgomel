@@ -18,6 +18,13 @@ body {
     background: $background;
     font-family: "Libre Baskerville", serif;
   }
+  a {
+    text-decoration: none;
+    color: #ffffff;
+    &:hover {
+      color: black;
+    }
+  }
 }
 .responsivHeader {
   padding: 0 !important;
