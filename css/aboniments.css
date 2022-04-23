@@ -191,10 +191,20 @@ body a {
   }
 }
 
-@media (max-width: 758px) {
-  div#navbarNav.navbar-collapse.collapse.show {
-    padding-left: 0;
-  }
+.responsivHeader {
+  padding: 0 !important;
+}
+
+.hiddenLogo {
+  display: none;
+}
+
+.header-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .icons {
@@ -520,7 +530,6 @@ h4 {
   list-style: none;
   font-family: "Ramaraja", serif;
   font-size: 1.5rem;
-  color: #fff;
 }
 
 .dash::before {
